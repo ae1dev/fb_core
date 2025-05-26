@@ -1,7 +1,6 @@
 // ignore: unnecessary_library_name
 library featurebase.models;
 
-import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '_models.g.dart';
