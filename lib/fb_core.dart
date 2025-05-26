@@ -6,6 +6,7 @@ import 'models/_models.dart' as fb;
 //API
 part 'featurebase.dart';
 part 'endpoint_base.dart';
+part 'endpoints/auth.dart';
 part 'endpoints/help_center.dart';
 part 'endpoints/changelog.dart';
 part 'endpoints/organization.dart';

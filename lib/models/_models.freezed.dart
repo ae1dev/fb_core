@@ -7490,6 +7490,313 @@ abstract class _User implements User {
       throw _privateConstructorUsedError;
 }
 
+UserWithAuth _$UserWithAuthFromJson(Map<String, dynamic> json) {
+  return _UserWithAuth.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserWithAuth {
+  /// The featurebase id for the user
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// The name of the user
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
+  /// The users email
+  @JsonKey(name: 'email', required: true)
+  String get email => throw _privateConstructorUsedError;
+
+  /// The users picture
+  @JsonKey(name: 'profilePicture')
+  String? get picture => throw _privateConstructorUsedError;
+
+  /// The type of the user
+  @JsonKey(name: 'type', required: true)
+  String get type => throw _privateConstructorUsedError;
+
+  /// The user access tken
+  @JsonKey(name: 'accessToken', required: true)
+  String get accessToken => throw _privateConstructorUsedError;
+
+  /// Serializes this UserWithAuth to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of UserWithAuth
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserWithAuthCopyWith<UserWithAuth> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserWithAuthCopyWith<$Res> {
+  factory $UserWithAuthCopyWith(
+          UserWithAuth value, $Res Function(UserWithAuth) then) =
+      _$UserWithAuthCopyWithImpl<$Res, UserWithAuth>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'email', required: true) String email,
+      @JsonKey(name: 'profilePicture') String? picture,
+      @JsonKey(name: 'type', required: true) String type,
+      @JsonKey(name: 'accessToken', required: true) String accessToken});
+}
+
+/// @nodoc
+class _$UserWithAuthCopyWithImpl<$Res, $Val extends UserWithAuth>
+    implements $UserWithAuthCopyWith<$Res> {
+  _$UserWithAuthCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of UserWithAuth
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? email = null,
+    Object? picture = freezed,
+    Object? type = null,
+    Object? accessToken = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      accessToken: null == accessToken
+          ? _value.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserWithAuthImplCopyWith<$Res>
+    implements $UserWithAuthCopyWith<$Res> {
+  factory _$$UserWithAuthImplCopyWith(
+          _$UserWithAuthImpl value, $Res Function(_$UserWithAuthImpl) then) =
+      __$$UserWithAuthImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'email', required: true) String email,
+      @JsonKey(name: 'profilePicture') String? picture,
+      @JsonKey(name: 'type', required: true) String type,
+      @JsonKey(name: 'accessToken', required: true) String accessToken});
+}
+
+/// @nodoc
+class __$$UserWithAuthImplCopyWithImpl<$Res>
+    extends _$UserWithAuthCopyWithImpl<$Res, _$UserWithAuthImpl>
+    implements _$$UserWithAuthImplCopyWith<$Res> {
+  __$$UserWithAuthImplCopyWithImpl(
+      _$UserWithAuthImpl _value, $Res Function(_$UserWithAuthImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserWithAuth
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? email = null,
+    Object? picture = freezed,
+    Object? type = null,
+    Object? accessToken = null,
+  }) {
+    return _then(_$UserWithAuthImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      accessToken: null == accessToken
+          ? _value.accessToken
+          : accessToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserWithAuthImpl implements _UserWithAuth {
+  const _$UserWithAuthImpl(
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'email', required: true) required this.email,
+      @JsonKey(name: 'profilePicture') this.picture,
+      @JsonKey(name: 'type', required: true) required this.type,
+      @JsonKey(name: 'accessToken', required: true) required this.accessToken});
+
+  factory _$UserWithAuthImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserWithAuthImplFromJson(json);
+
+  /// The featurebase id for the user
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
+
+  /// The name of the user
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
+
+  /// The users email
+  @override
+  @JsonKey(name: 'email', required: true)
+  final String email;
+
+  /// The users picture
+  @override
+  @JsonKey(name: 'profilePicture')
+  final String? picture;
+
+  /// The type of the user
+  @override
+  @JsonKey(name: 'type', required: true)
+  final String type;
+
+  /// The user access tken
+  @override
+  @JsonKey(name: 'accessToken', required: true)
+  final String accessToken;
+
+  @override
+  String toString() {
+    return 'UserWithAuth(id: $id, name: $name, email: $email, picture: $picture, type: $type, accessToken: $accessToken)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserWithAuthImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.picture, picture) || other.picture == picture) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.accessToken, accessToken) ||
+                other.accessToken == accessToken));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, email, picture, type, accessToken);
+
+  /// Create a copy of UserWithAuth
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserWithAuthImplCopyWith<_$UserWithAuthImpl> get copyWith =>
+      __$$UserWithAuthImplCopyWithImpl<_$UserWithAuthImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserWithAuthImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserWithAuth implements UserWithAuth {
+  const factory _UserWithAuth(
+      {@JsonKey(name: 'id', required: true) required final String id,
+      @JsonKey(name: 'name', required: true) required final String name,
+      @JsonKey(name: 'email', required: true) required final String email,
+      @JsonKey(name: 'profilePicture') final String? picture,
+      @JsonKey(name: 'type', required: true) required final String type,
+      @JsonKey(name: 'accessToken', required: true)
+      required final String accessToken}) = _$UserWithAuthImpl;
+
+  factory _UserWithAuth.fromJson(Map<String, dynamic> json) =
+      _$UserWithAuthImpl.fromJson;
+
+  /// The featurebase id for the user
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
+
+  /// The name of the user
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
+
+  /// The users email
+  @override
+  @JsonKey(name: 'email', required: true)
+  String get email;
+
+  /// The users picture
+  @override
+  @JsonKey(name: 'profilePicture')
+  String? get picture;
+
+  /// The type of the user
+  @override
+  @JsonKey(name: 'type', required: true)
+  String get type;
+
+  /// The user access tken
+  @override
+  @JsonKey(name: 'accessToken', required: true)
+  String get accessToken;
+
+  /// Create a copy of UserWithAuth
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserWithAuthImplCopyWith<_$UserWithAuthImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 Comment _$CommentFromJson(Map<String, dynamic> json) {
   return _Comment.fromJson(json);
 }

@@ -18,6 +18,9 @@ abstract class FeaturebaseApiBase {
   );
   Dio get dio => _dio;
 
+  late AuthEnd _auth;
+  AuthEnd get auth => _auth;
+
   late HelpCenterEnd _helpCenter;
   HelpCenterEnd get helpCenter => _helpCenter;
 
@@ -49,6 +52,7 @@ abstract class FeaturebaseApiBase {
         'https://$organizationName.featurebase.app';
 
     //Setup the endpoints
+    _auth = AuthEnd(this);
     _helpCenter = HelpCenterEnd(this);
     _changelog = ChangelogEnd(this);
     _organization = OrganizationEnd(this);

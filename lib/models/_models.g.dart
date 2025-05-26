@@ -618,6 +618,31 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'type': instance.type,
     };
 
+_$UserWithAuthImpl _$$UserWithAuthImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['id', 'name', 'email', 'type', 'accessToken'],
+  );
+  return _$UserWithAuthImpl(
+    id: json['id'] as String,
+    name: json['name'] as String,
+    email: json['email'] as String,
+    picture: json['profilePicture'] as String?,
+    type: json['type'] as String,
+    accessToken: json['accessToken'] as String,
+  );
+}
+
+Map<String, dynamic> _$$UserWithAuthImplToJson(_$UserWithAuthImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'email': instance.email,
+      'profilePicture': instance.picture,
+      'type': instance.type,
+      'accessToken': instance.accessToken,
+    };
+
 _$CommentImpl _$$CommentImplFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
