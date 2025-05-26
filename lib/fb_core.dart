@@ -3,6 +3,8 @@ library fb_core;
 import 'package:dio/dio.dart';
 import 'models/_models.dart' as fb;
 
+export 'models/_models.dart';
+
 //API
 part 'featurebase.dart';
 part 'endpoint_base.dart';
