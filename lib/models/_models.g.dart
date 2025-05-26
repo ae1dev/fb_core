@@ -3,6 +3,126 @@
 part of '_models.dart';
 
 // **************************************************************************
+// CopyWithGenerator
+// **************************************************************************
+
+abstract class _$UserCWProxy {
+  User id(String id);
+
+  User userId(String userId);
+
+  User name(String name);
+
+  User picture(String? picture);
+
+  User commentsCreated(int commentsCreated);
+
+  User postsCreated(int postsCreated);
+
+  User type(String type);
+
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `User(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  ///
+  /// Usage
+  /// ```dart
+  /// User(...).copyWith(id: 12, name: "My name")
+  /// ````
+  User call({
+    String id,
+    String userId,
+    String name,
+    String? picture,
+    int commentsCreated,
+    int postsCreated,
+    String type,
+  });
+}
+
+/// Proxy class for `copyWith` functionality. This is a callable class and can be used as follows: `instanceOfUser.copyWith(...)`. Additionally contains functions for specific fields e.g. `instanceOfUser.copyWith.fieldName(...)`
+class _$UserCWProxyImpl implements _$UserCWProxy {
+  const _$UserCWProxyImpl(this._value);
+
+  final User _value;
+
+  @override
+  User id(String id) => this(id: id);
+
+  @override
+  User userId(String userId) => this(userId: userId);
+
+  @override
+  User name(String name) => this(name: name);
+
+  @override
+  User picture(String? picture) => this(picture: picture);
+
+  @override
+  User commentsCreated(int commentsCreated) =>
+      this(commentsCreated: commentsCreated);
+
+  @override
+  User postsCreated(int postsCreated) => this(postsCreated: postsCreated);
+
+  @override
+  User type(String type) => this(type: type);
+
+  @override
+
+  /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `User(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
+  ///
+  /// Usage
+  /// ```dart
+  /// User(...).copyWith(id: 12, name: "My name")
+  /// ````
+  User call({
+    Object? id = const $CopyWithPlaceholder(),
+    Object? userId = const $CopyWithPlaceholder(),
+    Object? name = const $CopyWithPlaceholder(),
+    Object? picture = const $CopyWithPlaceholder(),
+    Object? commentsCreated = const $CopyWithPlaceholder(),
+    Object? postsCreated = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
+  }) {
+    return User(
+      id: id == const $CopyWithPlaceholder()
+          ? _value.id
+          // ignore: cast_nullable_to_non_nullable
+          : id as String,
+      userId: userId == const $CopyWithPlaceholder()
+          ? _value.userId
+          // ignore: cast_nullable_to_non_nullable
+          : userId as String,
+      name: name == const $CopyWithPlaceholder()
+          ? _value.name
+          // ignore: cast_nullable_to_non_nullable
+          : name as String,
+      picture: picture == const $CopyWithPlaceholder()
+          ? _value.picture
+          // ignore: cast_nullable_to_non_nullable
+          : picture as String?,
+      commentsCreated: commentsCreated == const $CopyWithPlaceholder()
+          ? _value.commentsCreated
+          // ignore: cast_nullable_to_non_nullable
+          : commentsCreated as int,
+      postsCreated: postsCreated == const $CopyWithPlaceholder()
+          ? _value.postsCreated
+          // ignore: cast_nullable_to_non_nullable
+          : postsCreated as int,
+      type: type == const $CopyWithPlaceholder()
+          ? _value.type
+          // ignore: cast_nullable_to_non_nullable
+          : type as String,
+    );
+  }
+}
+
+extension $UserCopyWith on User {
+  /// Returns a callable class that can be used as follows: `instanceOfUser.copyWith(...)` or like so:`instanceOfUser.copyWith.fieldName(...)`.
+  // ignore: library_private_types_in_public_api
+  _$UserCWProxy get copyWith => _$UserCWProxyImpl(this);
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 

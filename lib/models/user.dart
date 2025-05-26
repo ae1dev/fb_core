@@ -21,6 +21,7 @@ class UserSimple with _$UserSimple {
 }
 
 @freezed
+@CopyWith()
 class User with _$User {
   const factory User({
     /// The featurebase id for the user
