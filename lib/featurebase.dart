@@ -78,11 +78,19 @@ abstract class FeaturebaseApiBase {
   /// Set the access token for the posts API requests
   void setAccessToken(String accessToken) {
     _dio.options.headers['x-access-token'] = accessToken;
+
+    setTBSessionId();
   }
 
   /// Set the CSRF token for the posts API requests
   void setCsrfToken(String csrfToken) {
     _dio.options.headers['x-csrf-token'] = csrfToken;
+  }
+
+  /// Set the tinybird session id
+  void setTBSessionId() {
+    var uuid = Uuid();
+    _dio.options.headers['x-tb-session-id'] = uuid.v4();
   }
 
   bool isTokenSet() {
