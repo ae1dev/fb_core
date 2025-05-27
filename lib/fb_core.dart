@@ -1,6 +1,7 @@
 library fb_core;
 
 import 'package:dio/dio.dart';
+import 'package:uuid/uuid.dart';
 import 'models/_models.dart' as fb;
 
 export 'models/_models.dart';
