@@ -13,8 +13,34 @@ class AuthEnd extends EndpointBase {
     required String recaptchaToken,
     required String type,
   }) async {
-    final Map map = (await dio.post(
-      'https://auth.featurebase.app/api/v1/auth/login',
+    // Create a new Dio instance for the auth domain
+    final authDio = Dio(
+      BaseOptions(
+        baseUrl: 'https://auth.featurebase.app/api/v1',
+        headers: {
+          'Origin': 'https://${_api.organizationName}.featurebase.app',
+        },
+      ),
+    );
+
+    // Add the same interceptors as the main dio instance
+    if (_api._talker != null) {
+      authDio.interceptors.add(
+        TalkerDioLogger(
+          talker: _api._talker!,
+          settings: const TalkerDioLoggerSettings(
+            printRequestHeaders: false,
+            printResponseHeaders: false,
+            printResponseMessage: true,
+            printRequestData: false,
+            printResponseData: false,
+          ),
+        ),
+      );
+    }
+
+    final Map map = (await authDio.post(
+      '/auth/login',
       data: {
         "email": email,
         "password": password,
