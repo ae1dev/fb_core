@@ -4,6 +4,7 @@ class FeaturebaseApi extends FeaturebaseApiBase {
   FeaturebaseApi.from({
     // ignore: unused_element
     super.organizationName,
+    super.talker,
   }) : super.from();
 }
 
