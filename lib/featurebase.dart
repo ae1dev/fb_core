@@ -86,6 +86,7 @@ abstract class FeaturebaseApiBase {
   void setAccessToken(String accessToken) {
     _dio.options.headers['x-access-token'] = accessToken;
     _dio.options.headers['Cookie'] = "featurebase-access=$accessToken";
+    _printInfo('Core: Set access token');
 
     setTBSessionId();
   }
@@ -93,15 +94,23 @@ abstract class FeaturebaseApiBase {
   /// Set the CSRF token for the posts API requests
   void setCsrfToken(String csrfToken) {
     _dio.options.headers['x-csrf-token'] = csrfToken;
+    _printInfo('Core: Set CSRF token');
   }
 
   /// Set the tinybird session id
   void setTBSessionId() {
     var uuid = Uuid();
     _dio.options.headers['x-tb-session-id'] = uuid.v4();
+    _printInfo('Core: Set session id');
   }
 
   bool isTokenSet() {
     return _dio.options.headers['x-access-token'] != null;
+  }
+
+  void _printInfo(String msg) {
+    if (_talker != null) {
+      _talker!.info(msg);
+    }
   }
 }
