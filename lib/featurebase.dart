@@ -39,8 +39,11 @@ abstract class FeaturebaseApiBase {
   late UserEnd _user;
   UserEnd get user => _user;
 
+  Talker? _talker;
+
   FeaturebaseApiBase.from({
     String organizationName = "featurebase",
+    Talker? talker,
   }) {
     _organizationName = organizationName;
 
@@ -60,19 +63,22 @@ abstract class FeaturebaseApiBase {
     _comment = CommentEnd(this);
     _user = UserEnd(this);
 
-    // dio.interceptors.add(
-    //   InterceptorsWrapper(
-    //     // onError: (options, handler) {
-    //     //   print('Request: ${options.response?.data}');
-    //     //   return handler.next(options);
-    //     // },
-    //     onError: (options, handler) {
-    //       print(
-    //           'Request error: ${options.response?.realUri} ${options.response?.data}');
-    //       return handler.next(options);
-    //     },
-    //   ),
-    // );
+    _talker = talker;
+
+    dio.interceptors.addAll([
+      //Setup talker
+      if (_talker != null)
+        TalkerDioLogger(
+          talker: _talker,
+          settings: const TalkerDioLoggerSettings(
+            printRequestHeaders: false,
+            printResponseHeaders: false,
+            printResponseMessage: true,
+            printRequestData: false,
+            printResponseData: false,
+          ),
+        ),
+    ]);
   }
 
   /// Set the access token for the posts API requests

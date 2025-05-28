@@ -1,6 +1,9 @@
 library fb_core;
 
 import 'package:dio/dio.dart';
+import 'package:talker/talker.dart';
+import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
+import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 import 'package:uuid/uuid.dart';
 import 'models/_models.dart' as fb;
 
