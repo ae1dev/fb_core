@@ -27,8 +27,8 @@ class AuthEnd extends EndpointBase {
     Map<String, Object?> tempMap = response.data['user'];
 
     //Update access token from cookie
-    if (response.headers.value('set-cookie') != null) {
-      String setCookie = response.headers.value('set-cookie')!;
+    if (response.headers.map['set-cookie'] != null) {
+      String setCookie = response.headers.map['set-cookie']!.first;
       // Extract the token value using a regular expression
       final RegExp regExp = RegExp(r'featurebase-access=([^;]+)');
       final Match? match = regExp.firstMatch(setCookie);
