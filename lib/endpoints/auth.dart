@@ -24,7 +24,7 @@ class AuthEnd extends EndpointBase {
     );
 
     //Set base user
-    Map tempMap = response.data['user'];
+    Map<String, Object?> tempMap = response.data['user'];
 
     //Update access token from cookie
     if (response.headers.value('set-cookie') != null) {
@@ -38,6 +38,6 @@ class AuthEnd extends EndpointBase {
       }
     }
 
-    return fb.UserWithAuth.fromJson(response.data['user']);
+    return fb.UserWithAuth.fromJson(tempMap);
   }
 }
