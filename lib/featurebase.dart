@@ -86,9 +86,12 @@ abstract class FeaturebaseApiBase {
   }
 
   /// Set the access token for the posts API requests
-  void setAccessToken(String accessToken) {
-    _dio.options.headers['x-access-token'] = accessToken;
-    _dio.options.headers['Cookie'] = "featurebase-access-$accessToken;";
+  void setAccessToken(String accessToken, {bool cookieToken = false}) {
+    if (cookieToken) {
+      _dio.options.headers['Cookie'] = accessToken;
+    } else {
+      _dio.options.headers['x-access-token'] = accessToken;
+    }
     _printInfo('Core: Set access token');
 
     setTBSessionId();
