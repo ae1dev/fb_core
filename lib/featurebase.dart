@@ -83,10 +83,21 @@ abstract class FeaturebaseApiBase {
   }
 
   /// Set the access token for the posts API requests
-  void setAccessToken(String accessToken, {bool cookieToken = false}) {
+  void setAccessToken(
+    String accessToken, {
+    bool cookieToken = false,
+    String? orgId,
+  }) {
     if (cookieToken) {
-      _dio.options.headers['Cookie'] = accessToken;
+      //Set cookie token
+      if (orgId != null) {
+        _dio.options.headers['Cookie'] =
+            accessToken.replaceAll('-5febde12dc56d60012d47db6', '-$orgId');
+      } else {
+        _dio.options.headers['Cookie'] = accessToken;
+      }
     } else {
+      //Set SSO token
       _dio.options.headers['x-access-token'] = accessToken;
     }
     _printInfo('Core: Set access token');
