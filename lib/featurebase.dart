@@ -119,6 +119,8 @@ abstract class FeaturebaseApiBase {
     // Add the Origin header to the request
     _dio.options.headers['Origin'] = 'https://$orgName.featurebase.app';
     _dio.options.headers['referer'] = 'https://$orgName.featurebase.app';
+
+    _printInfo('Core: Setup $orgName');
   }
 
   bool isTokenSet() {
