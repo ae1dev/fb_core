@@ -9,7 +9,7 @@ class FeaturebaseApi extends FeaturebaseApiBase {
 }
 
 abstract class FeaturebaseApiBase {
-  static String _organizationName = "featurebase";
+  static String _organizationName = "feedback";
   String get organizationName => _organizationName;
 
   final Dio _dio = Dio(
@@ -43,7 +43,7 @@ abstract class FeaturebaseApiBase {
   Talker? _talker;
 
   FeaturebaseApiBase.from({
-    String organizationName = "featurebase",
+    String organizationName = "feedback",
     Talker? talker,
   }) {
     _organizationName = organizationName;
