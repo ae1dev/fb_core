@@ -54,6 +54,9 @@ abstract class FeaturebaseApiBase {
     // Add the Origin header to the request
     _dio.options.headers['Origin'] =
         'https://$organizationName.featurebase.app';
+    _dio.options.headers['referer'] =
+        'https://$organizationName.featurebase.app';
+    _dio.options.headers['accept'] = 'application/json';
 
     //Setup the endpoints
     _auth = AuthEnd(this);
@@ -83,9 +86,12 @@ abstract class FeaturebaseApiBase {
   }
 
   /// Set the access token for the posts API requests
-  void setAccessToken(String accessToken) {
+  void setAccessToken(String accessToken, {String? cookie}) {
     _dio.options.headers['x-access-token'] = accessToken;
-    _dio.options.headers['Cookie'] = "featurebase-access=$accessToken";
+    if (cookie != null) {
+      _dio.options.headers['Cookie'] = cookie;
+    }
+
     _printInfo('Core: Set access token');
 
     setTBSessionId();
