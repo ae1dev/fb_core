@@ -3976,6 +3976,582 @@ abstract class _Inbox implements Inbox {
       throw _privateConstructorUsedError;
 }
 
+Conversation _$ConversationFromJson(Map<String, dynamic> json) {
+  return _Conversation.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Conversation {
+  /// Conversation Id
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// Conversation type
+  @JsonKey(name: 'type', required: true)
+  String get type => throw _privateConstructorUsedError;
+
+  /// If the conversation is open
+  @JsonKey(name: 'open', required: true)
+  bool get open => throw _privateConstructorUsedError;
+
+  /// When there was last activity
+  @JsonKey(name: 'lastActivityAt', required: true)
+  DateTime get lastActivityAt => throw _privateConstructorUsedError;
+
+  /// The conversation participants
+  @JsonKey(name: 'participants', required: true)
+  List<ConversationParticipant> get participants =>
+      throw _privateConstructorUsedError;
+
+  /// Serializes this Conversation to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Conversation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ConversationCopyWith<Conversation> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ConversationCopyWith<$Res> {
+  factory $ConversationCopyWith(
+          Conversation value, $Res Function(Conversation) then) =
+      _$ConversationCopyWithImpl<$Res, Conversation>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'type', required: true) String type,
+      @JsonKey(name: 'open', required: true) bool open,
+      @JsonKey(name: 'lastActivityAt', required: true) DateTime lastActivityAt,
+      @JsonKey(name: 'participants', required: true)
+      List<ConversationParticipant> participants});
+}
+
+/// @nodoc
+class _$ConversationCopyWithImpl<$Res, $Val extends Conversation>
+    implements $ConversationCopyWith<$Res> {
+  _$ConversationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Conversation
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? open = null,
+    Object? lastActivityAt = null,
+    Object? participants = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      open: null == open
+          ? _value.open
+          : open // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lastActivityAt: null == lastActivityAt
+          ? _value.lastActivityAt
+          : lastActivityAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      participants: null == participants
+          ? _value.participants
+          : participants // ignore: cast_nullable_to_non_nullable
+              as List<ConversationParticipant>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ConversationImplCopyWith<$Res>
+    implements $ConversationCopyWith<$Res> {
+  factory _$$ConversationImplCopyWith(
+          _$ConversationImpl value, $Res Function(_$ConversationImpl) then) =
+      __$$ConversationImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'type', required: true) String type,
+      @JsonKey(name: 'open', required: true) bool open,
+      @JsonKey(name: 'lastActivityAt', required: true) DateTime lastActivityAt,
+      @JsonKey(name: 'participants', required: true)
+      List<ConversationParticipant> participants});
+}
+
+/// @nodoc
+class __$$ConversationImplCopyWithImpl<$Res>
+    extends _$ConversationCopyWithImpl<$Res, _$ConversationImpl>
+    implements _$$ConversationImplCopyWith<$Res> {
+  __$$ConversationImplCopyWithImpl(
+      _$ConversationImpl _value, $Res Function(_$ConversationImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Conversation
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? open = null,
+    Object? lastActivityAt = null,
+    Object? participants = null,
+  }) {
+    return _then(_$ConversationImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      open: null == open
+          ? _value.open
+          : open // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lastActivityAt: null == lastActivityAt
+          ? _value.lastActivityAt
+          : lastActivityAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      participants: null == participants
+          ? _value._participants
+          : participants // ignore: cast_nullable_to_non_nullable
+              as List<ConversationParticipant>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ConversationImpl implements _Conversation {
+  const _$ConversationImpl(
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'type', required: true) required this.type,
+      @JsonKey(name: 'open', required: true) required this.open,
+      @JsonKey(name: 'lastActivityAt', required: true)
+      required this.lastActivityAt,
+      @JsonKey(name: 'participants', required: true)
+      required final List<ConversationParticipant> participants})
+      : _participants = participants;
+
+  factory _$ConversationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ConversationImplFromJson(json);
+
+  /// Conversation Id
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
+
+  /// Conversation type
+  @override
+  @JsonKey(name: 'type', required: true)
+  final String type;
+
+  /// If the conversation is open
+  @override
+  @JsonKey(name: 'open', required: true)
+  final bool open;
+
+  /// When there was last activity
+  @override
+  @JsonKey(name: 'lastActivityAt', required: true)
+  final DateTime lastActivityAt;
+
+  /// The conversation participants
+  final List<ConversationParticipant> _participants;
+
+  /// The conversation participants
+  @override
+  @JsonKey(name: 'participants', required: true)
+  List<ConversationParticipant> get participants {
+    if (_participants is EqualUnmodifiableListView) return _participants;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_participants);
+  }
+
+  @override
+  String toString() {
+    return 'Conversation(id: $id, type: $type, open: $open, lastActivityAt: $lastActivityAt, participants: $participants)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ConversationImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.open, open) || other.open == open) &&
+            (identical(other.lastActivityAt, lastActivityAt) ||
+                other.lastActivityAt == lastActivityAt) &&
+            const DeepCollectionEquality()
+                .equals(other._participants, _participants));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, type, open, lastActivityAt,
+      const DeepCollectionEquality().hash(_participants));
+
+  /// Create a copy of Conversation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ConversationImplCopyWith<_$ConversationImpl> get copyWith =>
+      __$$ConversationImplCopyWithImpl<_$ConversationImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ConversationImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Conversation implements Conversation {
+  const factory _Conversation(
+          {@JsonKey(name: 'id', required: true) required final String id,
+          @JsonKey(name: 'type', required: true) required final String type,
+          @JsonKey(name: 'open', required: true) required final bool open,
+          @JsonKey(name: 'lastActivityAt', required: true)
+          required final DateTime lastActivityAt,
+          @JsonKey(name: 'participants', required: true)
+          required final List<ConversationParticipant> participants}) =
+      _$ConversationImpl;
+
+  factory _Conversation.fromJson(Map<String, dynamic> json) =
+      _$ConversationImpl.fromJson;
+
+  /// Conversation Id
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
+
+  /// Conversation type
+  @override
+  @JsonKey(name: 'type', required: true)
+  String get type;
+
+  /// If the conversation is open
+  @override
+  @JsonKey(name: 'open', required: true)
+  bool get open;
+
+  /// When there was last activity
+  @override
+  @JsonKey(name: 'lastActivityAt', required: true)
+  DateTime get lastActivityAt;
+
+  /// The conversation participants
+  @override
+  @JsonKey(name: 'participants', required: true)
+  List<ConversationParticipant> get participants;
+
+  /// Create a copy of Conversation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConversationImplCopyWith<_$ConversationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+ConversationParticipant _$ConversationParticipantFromJson(
+    Map<String, dynamic> json) {
+  return _ConversationParticipant.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ConversationParticipant {
+  /// Participant Id
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// Participant type
+  @JsonKey(name: 'type', required: true)
+  String get type => throw _privateConstructorUsedError;
+
+  /// Participant name
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
+  /// Participant picture
+  @JsonKey(name: 'picture', required: true)
+  String get picture => throw _privateConstructorUsedError;
+
+  /// Participant email
+  @JsonKey(name: 'email', required: true)
+  String get email => throw _privateConstructorUsedError;
+
+  /// Serializes this ConversationParticipant to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of ConversationParticipant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ConversationParticipantCopyWith<ConversationParticipant> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ConversationParticipantCopyWith<$Res> {
+  factory $ConversationParticipantCopyWith(ConversationParticipant value,
+          $Res Function(ConversationParticipant) then) =
+      _$ConversationParticipantCopyWithImpl<$Res, ConversationParticipant>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'type', required: true) String type,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'picture', required: true) String picture,
+      @JsonKey(name: 'email', required: true) String email});
+}
+
+/// @nodoc
+class _$ConversationParticipantCopyWithImpl<$Res,
+        $Val extends ConversationParticipant>
+    implements $ConversationParticipantCopyWith<$Res> {
+  _$ConversationParticipantCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of ConversationParticipant
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? name = null,
+    Object? picture = null,
+    Object? email = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: null == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ConversationParticipantImplCopyWith<$Res>
+    implements $ConversationParticipantCopyWith<$Res> {
+  factory _$$ConversationParticipantImplCopyWith(
+          _$ConversationParticipantImpl value,
+          $Res Function(_$ConversationParticipantImpl) then) =
+      __$$ConversationParticipantImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'type', required: true) String type,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'picture', required: true) String picture,
+      @JsonKey(name: 'email', required: true) String email});
+}
+
+/// @nodoc
+class __$$ConversationParticipantImplCopyWithImpl<$Res>
+    extends _$ConversationParticipantCopyWithImpl<$Res,
+        _$ConversationParticipantImpl>
+    implements _$$ConversationParticipantImplCopyWith<$Res> {
+  __$$ConversationParticipantImplCopyWithImpl(
+      _$ConversationParticipantImpl _value,
+      $Res Function(_$ConversationParticipantImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ConversationParticipant
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? name = null,
+    Object? picture = null,
+    Object? email = null,
+  }) {
+    return _then(_$ConversationParticipantImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: null == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ConversationParticipantImpl implements _ConversationParticipant {
+  const _$ConversationParticipantImpl(
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'type', required: true) required this.type,
+      @JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'picture', required: true) required this.picture,
+      @JsonKey(name: 'email', required: true) required this.email});
+
+  factory _$ConversationParticipantImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ConversationParticipantImplFromJson(json);
+
+  /// Participant Id
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
+
+  /// Participant type
+  @override
+  @JsonKey(name: 'type', required: true)
+  final String type;
+
+  /// Participant name
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
+
+  /// Participant picture
+  @override
+  @JsonKey(name: 'picture', required: true)
+  final String picture;
+
+  /// Participant email
+  @override
+  @JsonKey(name: 'email', required: true)
+  final String email;
+
+  @override
+  String toString() {
+    return 'ConversationParticipant(id: $id, type: $type, name: $name, picture: $picture, email: $email)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ConversationParticipantImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.picture, picture) || other.picture == picture) &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, type, name, picture, email);
+
+  /// Create a copy of ConversationParticipant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ConversationParticipantImplCopyWith<_$ConversationParticipantImpl>
+      get copyWith => __$$ConversationParticipantImplCopyWithImpl<
+          _$ConversationParticipantImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ConversationParticipantImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ConversationParticipant implements ConversationParticipant {
+  const factory _ConversationParticipant(
+      {@JsonKey(name: 'id', required: true) required final String id,
+      @JsonKey(name: 'type', required: true) required final String type,
+      @JsonKey(name: 'name', required: true) required final String name,
+      @JsonKey(name: 'picture', required: true) required final String picture,
+      @JsonKey(name: 'email', required: true)
+      required final String email}) = _$ConversationParticipantImpl;
+
+  factory _ConversationParticipant.fromJson(Map<String, dynamic> json) =
+      _$ConversationParticipantImpl.fromJson;
+
+  /// Participant Id
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
+
+  /// Participant type
+  @override
+  @JsonKey(name: 'type', required: true)
+  String get type;
+
+  /// Participant name
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
+
+  /// Participant picture
+  @override
+  @JsonKey(name: 'picture', required: true)
+  String get picture;
+
+  /// Participant email
+  @override
+  @JsonKey(name: 'email', required: true)
+  String get email;
+
+  /// Create a copy of ConversationParticipant
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConversationParticipantImplCopyWith<_$ConversationParticipantImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 NavItem _$NavItemFromJson(Map<String, dynamic> json) {
   return _NavItem.fromJson(json);
 }

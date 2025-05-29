@@ -16,4 +16,25 @@ class MessengerEnd extends EndpointBase {
     var inboxesMap = map['inboxes'] as Iterable<dynamic>;
     return inboxesMap.map((m) => fb.Inbox.fromJson(m)).toList();
   }
+
+  /// Get a list of conversations
+  Future<fb.ResultsPagination<fb.Conversation>> conversationsList({
+    String state = 'open',
+    String inboxType = 'all',
+    String sortBy = 'lastActivityAt:desc',
+    int page = 1,
+  }) async {
+    final Map<String, Object?> map =
+        (await dio.get("$_path/conversations/list", queryParameters: {
+      "state": state,
+      "inboxType": inboxType,
+      "sortBy": sortBy,
+      "page": page,
+    }))
+            .data;
+    return fb.ResultsPagination<fb.Conversation>.fromJson(
+      map,
+      (json) => fb.Conversation.fromJson(json as Map<String, dynamic>),
+    );
+  }
 }

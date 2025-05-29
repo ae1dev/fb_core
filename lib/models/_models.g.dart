@@ -326,6 +326,62 @@ Map<String, dynamic> _$$InboxImplToJson(_$InboxImpl instance) =>
       'id': instance.id,
     };
 
+_$ConversationImpl _$$ConversationImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const [
+      'id',
+      'type',
+      'open',
+      'lastActivityAt',
+      'participants'
+    ],
+  );
+  return _$ConversationImpl(
+    id: json['id'] as String,
+    type: json['type'] as String,
+    open: json['open'] as bool,
+    lastActivityAt: DateTime.parse(json['lastActivityAt'] as String),
+    participants: (json['participants'] as List<dynamic>)
+        .map((e) => ConversationParticipant.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
+
+Map<String, dynamic> _$$ConversationImplToJson(_$ConversationImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'type': instance.type,
+      'open': instance.open,
+      'lastActivityAt': instance.lastActivityAt.toIso8601String(),
+      'participants': instance.participants,
+    };
+
+_$ConversationParticipantImpl _$$ConversationParticipantImplFromJson(
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['id', 'type', 'name', 'picture', 'email'],
+  );
+  return _$ConversationParticipantImpl(
+    id: json['id'] as String,
+    type: json['type'] as String,
+    name: json['name'] as String,
+    picture: json['picture'] as String,
+    email: json['email'] as String,
+  );
+}
+
+Map<String, dynamic> _$$ConversationParticipantImplToJson(
+        _$ConversationParticipantImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'type': instance.type,
+      'name': instance.name,
+      'picture': instance.picture,
+      'email': instance.email,
+    };
+
 _$NavItemImpl _$$NavItemImplFromJson(Map<String, dynamic> json) =>
     _$NavItemImpl(
       type: json['type'] as String,
