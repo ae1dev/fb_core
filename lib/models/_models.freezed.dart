@@ -3762,6 +3762,220 @@ abstract class _FBIcon implements FBIcon {
       throw _privateConstructorUsedError;
 }
 
+Inbox _$InboxFromJson(Map<String, dynamic> json) {
+  return _Inbox.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Inbox {
+  /// Inbox item count
+  @JsonKey(name: 'count', required: true)
+  int get count => throw _privateConstructorUsedError;
+
+  /// Inbox name
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
+  /// Inbox Id
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// Serializes this Inbox to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Inbox
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $InboxCopyWith<Inbox> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InboxCopyWith<$Res> {
+  factory $InboxCopyWith(Inbox value, $Res Function(Inbox) then) =
+      _$InboxCopyWithImpl<$Res, Inbox>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'count', required: true) int count,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'id', required: true) String id});
+}
+
+/// @nodoc
+class _$InboxCopyWithImpl<$Res, $Val extends Inbox>
+    implements $InboxCopyWith<$Res> {
+  _$InboxCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Inbox
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? count = null,
+    Object? name = null,
+    Object? id = null,
+  }) {
+    return _then(_value.copyWith(
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$InboxImplCopyWith<$Res> implements $InboxCopyWith<$Res> {
+  factory _$$InboxImplCopyWith(
+          _$InboxImpl value, $Res Function(_$InboxImpl) then) =
+      __$$InboxImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'count', required: true) int count,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'id', required: true) String id});
+}
+
+/// @nodoc
+class __$$InboxImplCopyWithImpl<$Res>
+    extends _$InboxCopyWithImpl<$Res, _$InboxImpl>
+    implements _$$InboxImplCopyWith<$Res> {
+  __$$InboxImplCopyWithImpl(
+      _$InboxImpl _value, $Res Function(_$InboxImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Inbox
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? count = null,
+    Object? name = null,
+    Object? id = null,
+  }) {
+    return _then(_$InboxImpl(
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$InboxImpl implements _Inbox {
+  const _$InboxImpl(
+      {@JsonKey(name: 'count', required: true) required this.count,
+      @JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'id', required: true) required this.id});
+
+  factory _$InboxImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InboxImplFromJson(json);
+
+  /// Inbox item count
+  @override
+  @JsonKey(name: 'count', required: true)
+  final int count;
+
+  /// Inbox name
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
+
+  /// Inbox Id
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
+
+  @override
+  String toString() {
+    return 'Inbox(count: $count, name: $name, id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InboxImpl &&
+            (identical(other.count, count) || other.count == count) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, count, name, id);
+
+  /// Create a copy of Inbox
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InboxImplCopyWith<_$InboxImpl> get copyWith =>
+      __$$InboxImplCopyWithImpl<_$InboxImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$InboxImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Inbox implements Inbox {
+  const factory _Inbox(
+          {@JsonKey(name: 'count', required: true) required final int count,
+          @JsonKey(name: 'name', required: true) required final String name,
+          @JsonKey(name: 'id', required: true) required final String id}) =
+      _$InboxImpl;
+
+  factory _Inbox.fromJson(Map<String, dynamic> json) = _$InboxImpl.fromJson;
+
+  /// Inbox item count
+  @override
+  @JsonKey(name: 'count', required: true)
+  int get count;
+
+  /// Inbox name
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
+
+  /// Inbox Id
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
+
+  /// Create a copy of Inbox
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InboxImplCopyWith<_$InboxImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 NavItem _$NavItemFromJson(Map<String, dynamic> json) {
   return _NavItem.fromJson(json);
 }

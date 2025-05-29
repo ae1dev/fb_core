@@ -37,6 +37,9 @@ abstract class FeaturebaseApiBase {
   late CommentEnd _comment;
   CommentEnd get comment => _comment;
 
+  late MessengerEnd _messenger;
+  MessengerEnd get messeger => _messenger;
+
   late UserEnd _user;
   UserEnd get user => _user;
 
@@ -65,6 +68,7 @@ abstract class FeaturebaseApiBase {
     _organization = OrganizationEnd(this);
     _feedback = FeedbackEnd(this);
     _comment = CommentEnd(this);
+    _messenger = MessengerEnd(this);
     _user = UserEnd(this);
 
     _talker = talker;

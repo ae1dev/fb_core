@@ -307,6 +307,25 @@ Map<String, dynamic> _$$FBIconImplToJson(_$FBIconImpl instance) =>
       'type': instance.type,
     };
 
+_$InboxImpl _$$InboxImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['count', 'name', 'id'],
+  );
+  return _$InboxImpl(
+    count: (json['count'] as num).toInt(),
+    name: json['name'] as String,
+    id: json['id'] as String,
+  );
+}
+
+Map<String, dynamic> _$$InboxImplToJson(_$InboxImpl instance) =>
+    <String, dynamic>{
+      'count': instance.count,
+      'name': instance.name,
+      'id': instance.id,
+    };
+
 _$NavItemImpl _$$NavItemImplFromJson(Map<String, dynamic> json) =>
     _$NavItemImpl(
       type: json['type'] as String,

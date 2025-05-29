@@ -17,5 +17,6 @@ part 'endpoints/help_center.dart';
 part 'endpoints/changelog.dart';
 part 'endpoints/organization.dart';
 part 'endpoints/feedback.dart';
+part 'endpoints/messenger.dart';
 part 'endpoints/user.dart';
 part 'endpoints/comment.dart';

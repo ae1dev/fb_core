@@ -11,6 +11,7 @@ part 'changelog.dart';
 part 'collection.dart';
 part 'help_center.dart';
 part 'icon.dart';
+part 'messenger.dart';
 part 'nav_item.dart';
 part 'organization.dart';
 part 'post.dart';
