@@ -51,14 +51,7 @@ abstract class FeaturebaseApiBase {
   }) {
     _organizationName = organizationName;
 
-    //Setup the base url
-    _dio.options.baseUrl = 'https://$organizationName.featurebase.app/api/v1';
-
-    // Add the Origin header to the request
-    _dio.options.headers['Origin'] =
-        'https://$organizationName.featurebase.app';
-    _dio.options.headers['referer'] =
-        'https://$organizationName.featurebase.app';
+    _setOrganizationBasedInfo(organizationName);
     _dio.options.headers['accept'] = 'application/json';
 
     //Setup the endpoints
@@ -112,6 +105,20 @@ abstract class FeaturebaseApiBase {
     var uuid = Uuid();
     _dio.options.headers['x-tb-session-id'] = uuid.v4();
     _printInfo('Core: Set session id');
+  }
+
+  /// Set the users organization id
+  void setOrgId(String id) {
+    _setOrganizationBasedInfo(id);
+  }
+
+  void _setOrganizationBasedInfo(String orgName) {
+    //Setup the base url
+    _dio.options.baseUrl = 'https://$orgName.featurebase.app/api/v1';
+
+    // Add the Origin header to the request
+    _dio.options.headers['Origin'] = 'https://$orgName.featurebase.app';
+    _dio.options.headers['referer'] = 'https://$orgName.featurebase.app';
   }
 
   bool isTokenSet() {
