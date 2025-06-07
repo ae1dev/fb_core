@@ -337,7 +337,6 @@ _$ConversationImpl _$$ConversationImplFromJson(Map<String, dynamic> json) {
       'open',
       'read',
       'lastActivityAt',
-      'lastRenderablePart',
       'participants'
     ],
   );
@@ -347,8 +346,10 @@ _$ConversationImpl _$$ConversationImplFromJson(Map<String, dynamic> json) {
     open: json['open'] as bool,
     read: json['read'] as bool,
     lastActivityAt: DateTime.parse(json['lastActivityAt'] as String),
-    lastRenderablePart: ConversationPart.fromJson(
-        json['lastRenderablePart'] as Map<String, dynamic>),
+    lastRenderablePart: json['lastRenderablePart'] == null
+        ? null
+        : ConversationPart.fromJson(
+            json['lastRenderablePart'] as Map<String, dynamic>),
     conversationParts: (json['conversationParts'] as List<dynamic>?)
         ?.map((e) => ConversationPart.fromJson(e as Map<String, dynamic>))
         .toList(),

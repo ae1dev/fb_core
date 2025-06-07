@@ -4032,10 +4032,15 @@ mixin _$Conversation {
   DateTime get lastActivityAt => throw _privateConstructorUsedError;
 
   /// The last part in the conversation
-  @JsonKey(name: 'lastRenderablePart', required: true)
-  ConversationPart get lastRenderablePart => throw _privateConstructorUsedError;
+  ///
+  /// Only returned when getting conversations
+  @JsonKey(name: 'lastRenderablePart')
+  ConversationPart? get lastRenderablePart =>
+      throw _privateConstructorUsedError;
 
   /// The full conversation
+  ///
+  /// Only returned when getting one conversation
   @JsonKey(name: 'conversationParts')
   List<ConversationPart>? get conversationParts =>
       throw _privateConstructorUsedError;
@@ -4067,14 +4072,13 @@ abstract class $ConversationCopyWith<$Res> {
       @JsonKey(name: 'open', required: true) bool open,
       @JsonKey(name: 'read', required: true) bool read,
       @JsonKey(name: 'lastActivityAt', required: true) DateTime lastActivityAt,
-      @JsonKey(name: 'lastRenderablePart', required: true)
-      ConversationPart lastRenderablePart,
+      @JsonKey(name: 'lastRenderablePart') ConversationPart? lastRenderablePart,
       @JsonKey(name: 'conversationParts')
       List<ConversationPart>? conversationParts,
       @JsonKey(name: 'participants', required: true)
       List<ConversationParticipant> participants});
 
-  $ConversationPartCopyWith<$Res> get lastRenderablePart;
+  $ConversationPartCopyWith<$Res>? get lastRenderablePart;
 }
 
 /// @nodoc
@@ -4097,7 +4101,7 @@ class _$ConversationCopyWithImpl<$Res, $Val extends Conversation>
     Object? open = null,
     Object? read = null,
     Object? lastActivityAt = null,
-    Object? lastRenderablePart = null,
+    Object? lastRenderablePart = freezed,
     Object? conversationParts = freezed,
     Object? participants = null,
   }) {
@@ -4122,10 +4126,10 @@ class _$ConversationCopyWithImpl<$Res, $Val extends Conversation>
           ? _value.lastActivityAt
           : lastActivityAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      lastRenderablePart: null == lastRenderablePart
+      lastRenderablePart: freezed == lastRenderablePart
           ? _value.lastRenderablePart
           : lastRenderablePart // ignore: cast_nullable_to_non_nullable
-              as ConversationPart,
+              as ConversationPart?,
       conversationParts: freezed == conversationParts
           ? _value.conversationParts
           : conversationParts // ignore: cast_nullable_to_non_nullable
@@ -4141,8 +4145,12 @@ class _$ConversationCopyWithImpl<$Res, $Val extends Conversation>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $ConversationPartCopyWith<$Res> get lastRenderablePart {
-    return $ConversationPartCopyWith<$Res>(_value.lastRenderablePart, (value) {
+  $ConversationPartCopyWith<$Res>? get lastRenderablePart {
+    if (_value.lastRenderablePart == null) {
+      return null;
+    }
+
+    return $ConversationPartCopyWith<$Res>(_value.lastRenderablePart!, (value) {
       return _then(_value.copyWith(lastRenderablePart: value) as $Val);
     });
   }
@@ -4162,15 +4170,14 @@ abstract class _$$ConversationImplCopyWith<$Res>
       @JsonKey(name: 'open', required: true) bool open,
       @JsonKey(name: 'read', required: true) bool read,
       @JsonKey(name: 'lastActivityAt', required: true) DateTime lastActivityAt,
-      @JsonKey(name: 'lastRenderablePart', required: true)
-      ConversationPart lastRenderablePart,
+      @JsonKey(name: 'lastRenderablePart') ConversationPart? lastRenderablePart,
       @JsonKey(name: 'conversationParts')
       List<ConversationPart>? conversationParts,
       @JsonKey(name: 'participants', required: true)
       List<ConversationParticipant> participants});
 
   @override
-  $ConversationPartCopyWith<$Res> get lastRenderablePart;
+  $ConversationPartCopyWith<$Res>? get lastRenderablePart;
 }
 
 /// @nodoc
@@ -4191,7 +4198,7 @@ class __$$ConversationImplCopyWithImpl<$Res>
     Object? open = null,
     Object? read = null,
     Object? lastActivityAt = null,
-    Object? lastRenderablePart = null,
+    Object? lastRenderablePart = freezed,
     Object? conversationParts = freezed,
     Object? participants = null,
   }) {
@@ -4216,10 +4223,10 @@ class __$$ConversationImplCopyWithImpl<$Res>
           ? _value.lastActivityAt
           : lastActivityAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      lastRenderablePart: null == lastRenderablePart
+      lastRenderablePart: freezed == lastRenderablePart
           ? _value.lastRenderablePart
           : lastRenderablePart // ignore: cast_nullable_to_non_nullable
-              as ConversationPart,
+              as ConversationPart?,
       conversationParts: freezed == conversationParts
           ? _value._conversationParts
           : conversationParts // ignore: cast_nullable_to_non_nullable
@@ -4242,8 +4249,7 @@ class _$ConversationImpl implements _Conversation {
       @JsonKey(name: 'read', required: true) required this.read,
       @JsonKey(name: 'lastActivityAt', required: true)
       required this.lastActivityAt,
-      @JsonKey(name: 'lastRenderablePart', required: true)
-      required this.lastRenderablePart,
+      @JsonKey(name: 'lastRenderablePart') required this.lastRenderablePart,
       @JsonKey(name: 'conversationParts')
       required final List<ConversationPart>? conversationParts,
       @JsonKey(name: 'participants', required: true)
@@ -4280,14 +4286,20 @@ class _$ConversationImpl implements _Conversation {
   final DateTime lastActivityAt;
 
   /// The last part in the conversation
+  ///
+  /// Only returned when getting conversations
   @override
-  @JsonKey(name: 'lastRenderablePart', required: true)
-  final ConversationPart lastRenderablePart;
+  @JsonKey(name: 'lastRenderablePart')
+  final ConversationPart? lastRenderablePart;
 
   /// The full conversation
+  ///
+  /// Only returned when getting one conversation
   final List<ConversationPart>? _conversationParts;
 
   /// The full conversation
+  ///
+  /// Only returned when getting one conversation
   @override
   @JsonKey(name: 'conversationParts')
   List<ConversationPart>? get conversationParts {
@@ -4372,8 +4384,8 @@ abstract class _Conversation implements Conversation {
           @JsonKey(name: 'read', required: true) required final bool read,
           @JsonKey(name: 'lastActivityAt', required: true)
           required final DateTime lastActivityAt,
-          @JsonKey(name: 'lastRenderablePart', required: true)
-          required final ConversationPart lastRenderablePart,
+          @JsonKey(name: 'lastRenderablePart')
+          required final ConversationPart? lastRenderablePart,
           @JsonKey(name: 'conversationParts')
           required final List<ConversationPart>? conversationParts,
           @JsonKey(name: 'participants', required: true)
@@ -4409,11 +4421,15 @@ abstract class _Conversation implements Conversation {
   DateTime get lastActivityAt;
 
   /// The last part in the conversation
+  ///
+  /// Only returned when getting conversations
   @override
-  @JsonKey(name: 'lastRenderablePart', required: true)
-  ConversationPart get lastRenderablePart;
+  @JsonKey(name: 'lastRenderablePart')
+  ConversationPart? get lastRenderablePart;
 
   /// The full conversation
+  ///
+  /// Only returned when getting one conversation
   @override
   @JsonKey(name: 'conversationParts')
   List<ConversationPart>? get conversationParts;

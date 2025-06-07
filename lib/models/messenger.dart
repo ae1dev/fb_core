@@ -39,10 +39,14 @@ class Conversation with _$Conversation {
     required DateTime lastActivityAt,
 
     /// The last part in the conversation
-    @JsonKey(name: 'lastRenderablePart', required: true)
-    required ConversationPart lastRenderablePart,
+    ///
+    /// Only returned when getting conversations
+    @JsonKey(name: 'lastRenderablePart')
+    required ConversationPart? lastRenderablePart,
 
     /// The full conversation
+    ///
+    /// Only returned when getting one conversation
     @JsonKey(name: 'conversationParts')
     required List<ConversationPart>? conversationParts,
 
