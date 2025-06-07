@@ -7959,8 +7959,8 @@ mixin _$User {
   String get id => throw _privateConstructorUsedError;
 
   /// The platforms user id
-  @JsonKey(name: 'userId', required: true)
-  String get userId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'userId')
+  String? get userId => throw _privateConstructorUsedError;
 
   /// The name of the user
   @JsonKey(name: 'name', required: true)
@@ -7998,7 +7998,7 @@ abstract class $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id', required: true) String id,
-      @JsonKey(name: 'userId', required: true) String userId,
+      @JsonKey(name: 'userId') String? userId,
       @JsonKey(name: 'name', required: true) String name,
       @JsonKey(name: 'profilePicture') String? picture,
       @JsonKey(name: 'commentsCreated') int commentsCreated,
@@ -8022,7 +8022,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? id = null,
-    Object? userId = null,
+    Object? userId = freezed,
     Object? name = null,
     Object? picture = freezed,
     Object? commentsCreated = null,
@@ -8034,10 +8034,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      userId: null == userId
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -8071,7 +8071,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id', required: true) String id,
-      @JsonKey(name: 'userId', required: true) String userId,
+      @JsonKey(name: 'userId') String? userId,
       @JsonKey(name: 'name', required: true) String name,
       @JsonKey(name: 'profilePicture') String? picture,
       @JsonKey(name: 'commentsCreated') int commentsCreated,
@@ -8092,7 +8092,7 @@ class __$$UserImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? userId = null,
+    Object? userId = freezed,
     Object? name = null,
     Object? picture = freezed,
     Object? commentsCreated = null,
@@ -8104,10 +8104,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      userId: null == userId
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -8137,7 +8137,7 @@ class __$$UserImplCopyWithImpl<$Res>
 class _$UserImpl implements _User {
   const _$UserImpl(
       {@JsonKey(name: 'id', required: true) required this.id,
-      @JsonKey(name: 'userId', required: true) required this.userId,
+      @JsonKey(name: 'userId') this.userId,
       @JsonKey(name: 'name', required: true) required this.name,
       @JsonKey(name: 'profilePicture') this.picture,
       @JsonKey(name: 'commentsCreated') this.commentsCreated = 0,
@@ -8154,8 +8154,8 @@ class _$UserImpl implements _User {
 
   /// The platforms user id
   @override
-  @JsonKey(name: 'userId', required: true)
-  final String userId;
+  @JsonKey(name: 'userId')
+  final String? userId;
 
   /// The name of the user
   @override
@@ -8227,7 +8227,7 @@ class _$UserImpl implements _User {
 abstract class _User implements User {
   const factory _User(
           {@JsonKey(name: 'id', required: true) required final String id,
-          @JsonKey(name: 'userId', required: true) required final String userId,
+          @JsonKey(name: 'userId') final String? userId,
           @JsonKey(name: 'name', required: true) required final String name,
           @JsonKey(name: 'profilePicture') final String? picture,
           @JsonKey(name: 'commentsCreated') final int commentsCreated,
@@ -8244,8 +8244,8 @@ abstract class _User implements User {
 
   /// The platforms user id
   @override
-  @JsonKey(name: 'userId', required: true)
-  String get userId;
+  @JsonKey(name: 'userId')
+  String? get userId;
 
   /// The name of the user
   @override

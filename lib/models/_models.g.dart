@@ -669,11 +669,11 @@ Map<String, dynamic> _$$UserSimpleImplToJson(_$UserSimpleImpl instance) =>
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['id', 'userId', 'name', 'type'],
+    requiredKeys: const ['id', 'name', 'type'],
   );
   return _$UserImpl(
     id: json['id'] as String,
-    userId: json['userId'] as String,
+    userId: json['userId'] as String?,
     name: json['name'] as String,
     picture: json['profilePicture'] as String?,
     commentsCreated: (json['commentsCreated'] as num?)?.toInt() ?? 0,

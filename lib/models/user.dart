@@ -27,7 +27,7 @@ class User with _$User {
     @JsonKey(name: 'id', required: true) required String id,
 
     /// The platforms user id
-    @JsonKey(name: 'userId', required: true) required String userId,
+    @JsonKey(name: 'userId') String? userId,
 
     /// The name of the user
     @JsonKey(name: 'name', required: true) required String name,
