@@ -99,10 +99,10 @@ class ResultsPagination<T> extends Object {
   int limit;
 
   /// The total number of pages.
-  @JsonKey(name: 'totalPages', required: true)
+  @JsonKey(name: 'totalPages', defaultValue: 0)
   int totalPages;
 
   /// The total number of items.
-  @JsonKey(name: 'totalResults', required: true)
+  @JsonKey(name: 'totalResults', defaultValue: 0)
   int totalResults;
 }
