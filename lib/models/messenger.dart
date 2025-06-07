@@ -72,10 +72,14 @@ class ConversationPart with _$ConversationPart {
     @JsonKey(name: 'body', required: true) required String body,
 
     /// Body converted to text
-    @JsonKey(name: 'bodyText', required: true) required String bodyText,
+    ///
+    /// Only returned when in lastRenderablePart
+    @JsonKey(name: 'bodyText') String? bodyText,
 
     /// Conversation channel
-    @JsonKey(name: 'channel', required: true) required String channel,
+    ///
+    /// Only returned when in lastRenderablePart
+    @JsonKey(name: 'channel') String? channel,
 
     /// When the part was created
     @JsonKey(name: 'createdAt', required: true) required DateTime createdAt,

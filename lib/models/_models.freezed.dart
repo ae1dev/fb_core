@@ -4466,12 +4466,16 @@ mixin _$ConversationPart {
   String get body => throw _privateConstructorUsedError;
 
   /// Body converted to text
-  @JsonKey(name: 'bodyText', required: true)
-  String get bodyText => throw _privateConstructorUsedError;
+  ///
+  /// Only returned when in lastRenderablePart
+  @JsonKey(name: 'bodyText')
+  String? get bodyText => throw _privateConstructorUsedError;
 
   /// Conversation channel
-  @JsonKey(name: 'channel', required: true)
-  String get channel => throw _privateConstructorUsedError;
+  ///
+  /// Only returned when in lastRenderablePart
+  @JsonKey(name: 'channel')
+  String? get channel => throw _privateConstructorUsedError;
 
   /// When the part was created
   @JsonKey(name: 'createdAt', required: true)
@@ -4501,8 +4505,8 @@ abstract class $ConversationPartCopyWith<$Res> {
       {@JsonKey(name: 'id', required: true) String id,
       @JsonKey(name: 'partType', required: true) String partType,
       @JsonKey(name: 'body', required: true) String body,
-      @JsonKey(name: 'bodyText', required: true) String bodyText,
-      @JsonKey(name: 'channel', required: true) String channel,
+      @JsonKey(name: 'bodyText') String? bodyText,
+      @JsonKey(name: 'channel') String? channel,
       @JsonKey(name: 'createdAt', required: true) DateTime createdAt,
       @JsonKey(name: 'author', required: true) ConversationParticipant author});
 
@@ -4527,8 +4531,8 @@ class _$ConversationPartCopyWithImpl<$Res, $Val extends ConversationPart>
     Object? id = null,
     Object? partType = null,
     Object? body = null,
-    Object? bodyText = null,
-    Object? channel = null,
+    Object? bodyText = freezed,
+    Object? channel = freezed,
     Object? createdAt = null,
     Object? author = null,
   }) {
@@ -4545,14 +4549,14 @@ class _$ConversationPartCopyWithImpl<$Res, $Val extends ConversationPart>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
-      bodyText: null == bodyText
+      bodyText: freezed == bodyText
           ? _value.bodyText
           : bodyText // ignore: cast_nullable_to_non_nullable
-              as String,
-      channel: null == channel
+              as String?,
+      channel: freezed == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -4587,8 +4591,8 @@ abstract class _$$ConversationPartImplCopyWith<$Res>
       {@JsonKey(name: 'id', required: true) String id,
       @JsonKey(name: 'partType', required: true) String partType,
       @JsonKey(name: 'body', required: true) String body,
-      @JsonKey(name: 'bodyText', required: true) String bodyText,
-      @JsonKey(name: 'channel', required: true) String channel,
+      @JsonKey(name: 'bodyText') String? bodyText,
+      @JsonKey(name: 'channel') String? channel,
       @JsonKey(name: 'createdAt', required: true) DateTime createdAt,
       @JsonKey(name: 'author', required: true) ConversationParticipant author});
 
@@ -4612,8 +4616,8 @@ class __$$ConversationPartImplCopyWithImpl<$Res>
     Object? id = null,
     Object? partType = null,
     Object? body = null,
-    Object? bodyText = null,
-    Object? channel = null,
+    Object? bodyText = freezed,
+    Object? channel = freezed,
     Object? createdAt = null,
     Object? author = null,
   }) {
@@ -4630,14 +4634,14 @@ class __$$ConversationPartImplCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
-      bodyText: null == bodyText
+      bodyText: freezed == bodyText
           ? _value.bodyText
           : bodyText // ignore: cast_nullable_to_non_nullable
-              as String,
-      channel: null == channel
+              as String?,
+      channel: freezed == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -4657,8 +4661,8 @@ class _$ConversationPartImpl implements _ConversationPart {
       {@JsonKey(name: 'id', required: true) required this.id,
       @JsonKey(name: 'partType', required: true) required this.partType,
       @JsonKey(name: 'body', required: true) required this.body,
-      @JsonKey(name: 'bodyText', required: true) required this.bodyText,
-      @JsonKey(name: 'channel', required: true) required this.channel,
+      @JsonKey(name: 'bodyText') this.bodyText,
+      @JsonKey(name: 'channel') this.channel,
       @JsonKey(name: 'createdAt', required: true) required this.createdAt,
       @JsonKey(name: 'author', required: true) required this.author});
 
@@ -4681,14 +4685,18 @@ class _$ConversationPartImpl implements _ConversationPart {
   final String body;
 
   /// Body converted to text
+  ///
+  /// Only returned when in lastRenderablePart
   @override
-  @JsonKey(name: 'bodyText', required: true)
-  final String bodyText;
+  @JsonKey(name: 'bodyText')
+  final String? bodyText;
 
   /// Conversation channel
+  ///
+  /// Only returned when in lastRenderablePart
   @override
-  @JsonKey(name: 'channel', required: true)
-  final String channel;
+  @JsonKey(name: 'channel')
+  final String? channel;
 
   /// When the part was created
   @override
@@ -4749,8 +4757,8 @@ abstract class _ConversationPart implements ConversationPart {
       {@JsonKey(name: 'id', required: true) required final String id,
       @JsonKey(name: 'partType', required: true) required final String partType,
       @JsonKey(name: 'body', required: true) required final String body,
-      @JsonKey(name: 'bodyText', required: true) required final String bodyText,
-      @JsonKey(name: 'channel', required: true) required final String channel,
+      @JsonKey(name: 'bodyText') final String? bodyText,
+      @JsonKey(name: 'channel') final String? channel,
       @JsonKey(name: 'createdAt', required: true)
       required final DateTime createdAt,
       @JsonKey(name: 'author', required: true)
@@ -4775,14 +4783,18 @@ abstract class _ConversationPart implements ConversationPart {
   String get body;
 
   /// Body converted to text
+  ///
+  /// Only returned when in lastRenderablePart
   @override
-  @JsonKey(name: 'bodyText', required: true)
-  String get bodyText;
+  @JsonKey(name: 'bodyText')
+  String? get bodyText;
 
   /// Conversation channel
+  ///
+  /// Only returned when in lastRenderablePart
   @override
-  @JsonKey(name: 'channel', required: true)
-  String get channel;
+  @JsonKey(name: 'channel')
+  String? get channel;
 
   /// When the part was created
   @override
