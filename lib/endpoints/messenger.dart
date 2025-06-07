@@ -22,16 +22,27 @@ class MessengerEnd extends EndpointBase {
     String state = 'open',
     String inboxType = 'all',
     String sortBy = 'lastActivityAt:desc',
+    String? inboxId,
     int page = 1,
   }) async {
-    final Map<String, Object?> map =
-        (await dio.get("$_path/conversations/list", queryParameters: {
+    Map<String, dynamic>? queryParameters = {
       "state": state,
       "inboxType": inboxType,
       "sortBy": sortBy,
+      "inboxId": inboxId,
       "page": page,
-    }))
-            .data;
+    };
+
+    //If inbox is set
+    if (inboxId != null) {
+      queryParameters.addAll({
+        "inboxId": inboxId,
+      });
+    }
+
+    final Map<String, Object?> map = (await dio.get("$_path/conversations/list",
+            queryParameters: queryParameters))
+        .data;
     return fb.ResultsPagination<fb.Conversation>.fromJson(
       map,
       (json) => fb.Conversation.fromJson(json as Map<String, dynamic>),
