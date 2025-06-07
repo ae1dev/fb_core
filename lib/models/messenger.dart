@@ -85,8 +85,9 @@ class ConversationPart with _$ConversationPart {
     @JsonKey(name: 'createdAt', required: true) required DateTime createdAt,
 
     /// Who the author of the part is
-    @JsonKey(name: 'author', required: true)
-    required ConversationParticipant author,
+    ///
+    /// If no author part is not a message
+    @JsonKey(name: 'author') required ConversationParticipant? author,
   }) = _ConversationPart;
 
   factory ConversationPart.fromJson(Map<String, Object?> json) =>

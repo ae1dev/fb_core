@@ -375,7 +375,7 @@ _$ConversationPartImpl _$$ConversationPartImplFromJson(
     Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['id', 'partType', 'body', 'createdAt', 'author'],
+    requiredKeys: const ['id', 'partType', 'body', 'createdAt'],
   );
   return _$ConversationPartImpl(
     id: json['id'] as String,
@@ -384,8 +384,10 @@ _$ConversationPartImpl _$$ConversationPartImplFromJson(
     bodyText: json['bodyText'] as String?,
     channel: json['channel'] as String?,
     createdAt: DateTime.parse(json['createdAt'] as String),
-    author: ConversationParticipant.fromJson(
-        json['author'] as Map<String, dynamic>),
+    author: json['author'] == null
+        ? null
+        : ConversationParticipant.fromJson(
+            json['author'] as Map<String, dynamic>),
   );
 }
 
