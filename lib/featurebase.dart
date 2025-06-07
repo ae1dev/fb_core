@@ -72,7 +72,7 @@ abstract class FeaturebaseApiBase {
         TalkerDioLogger(
           talker: _talker,
           settings: const TalkerDioLoggerSettings(
-            printRequestHeaders: true, //TODO: Disable later
+            printRequestHeaders: false,
             printResponseHeaders: true,
             printResponseMessage: true,
             printRequestData: false,
