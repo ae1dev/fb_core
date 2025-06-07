@@ -34,7 +34,7 @@ class MessengerEnd extends EndpointBase {
     };
 
     //If inbox is set
-    if (inboxId != null) {
+    if (inboxId != null && inboxId != 'all' && inboxId != 'unassigned') {
       queryParameters.addAll({
         "inboxId": inboxId,
       });
