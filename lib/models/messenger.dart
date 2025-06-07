@@ -99,10 +99,14 @@ class ConversationParticipant with _$ConversationParticipant {
     @JsonKey(name: 'type', required: true) required String type,
 
     /// Participant name
-    @JsonKey(name: 'name', required: true) required String name,
+    ///
+    /// Can be null for the bot
+    @JsonKey(name: 'name') String? name,
 
     /// Participant picture
-    @JsonKey(name: 'picture', required: true) required String picture,
+    ///
+    /// Can be null for the bot
+    @JsonKey(name: 'picture') String? picture,
 
     /// Participant email
     @JsonKey(name: 'email') String? email,

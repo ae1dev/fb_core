@@ -413,13 +413,13 @@ _$ConversationParticipantImpl _$$ConversationParticipantImplFromJson(
     Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['id', 'type', 'name', 'picture'],
+    requiredKeys: const ['id', 'type'],
   );
   return _$ConversationParticipantImpl(
     id: json['id'] as String,
     type: json['type'] as String,
-    name: json['name'] as String,
-    picture: json['picture'] as String,
+    name: json['name'] as String?,
+    picture: json['picture'] as String?,
     email: json['email'] as String?,
   );
 }

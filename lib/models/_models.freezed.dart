@@ -4818,12 +4818,16 @@ mixin _$ConversationParticipant {
   String get type => throw _privateConstructorUsedError;
 
   /// Participant name
-  @JsonKey(name: 'name', required: true)
-  String get name => throw _privateConstructorUsedError;
+  ///
+  /// Can be null for the bot
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
 
   /// Participant picture
-  @JsonKey(name: 'picture', required: true)
-  String get picture => throw _privateConstructorUsedError;
+  ///
+  /// Can be null for the bot
+  @JsonKey(name: 'picture')
+  String? get picture => throw _privateConstructorUsedError;
 
   /// Participant email
   @JsonKey(name: 'email')
@@ -4848,8 +4852,8 @@ abstract class $ConversationParticipantCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id', required: true) String id,
       @JsonKey(name: 'type', required: true) String type,
-      @JsonKey(name: 'name', required: true) String name,
-      @JsonKey(name: 'picture', required: true) String picture,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'picture') String? picture,
       @JsonKey(name: 'email') String? email});
 }
 
@@ -4871,8 +4875,8 @@ class _$ConversationParticipantCopyWithImpl<$Res,
   $Res call({
     Object? id = null,
     Object? type = null,
-    Object? name = null,
-    Object? picture = null,
+    Object? name = freezed,
+    Object? picture = freezed,
     Object? email = freezed,
   }) {
     return _then(_value.copyWith(
@@ -4884,14 +4888,14 @@ class _$ConversationParticipantCopyWithImpl<$Res,
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      picture: null == picture
+              as String?,
+      picture: freezed == picture
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -4912,8 +4916,8 @@ abstract class _$$ConversationParticipantImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'id', required: true) String id,
       @JsonKey(name: 'type', required: true) String type,
-      @JsonKey(name: 'name', required: true) String name,
-      @JsonKey(name: 'picture', required: true) String picture,
+      @JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'picture') String? picture,
       @JsonKey(name: 'email') String? email});
 }
 
@@ -4934,8 +4938,8 @@ class __$$ConversationParticipantImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? type = null,
-    Object? name = null,
-    Object? picture = null,
+    Object? name = freezed,
+    Object? picture = freezed,
     Object? email = freezed,
   }) {
     return _then(_$ConversationParticipantImpl(
@@ -4947,14 +4951,14 @@ class __$$ConversationParticipantImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      picture: null == picture
+              as String?,
+      picture: freezed == picture
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -4969,8 +4973,8 @@ class _$ConversationParticipantImpl implements _ConversationParticipant {
   const _$ConversationParticipantImpl(
       {@JsonKey(name: 'id', required: true) required this.id,
       @JsonKey(name: 'type', required: true) required this.type,
-      @JsonKey(name: 'name', required: true) required this.name,
-      @JsonKey(name: 'picture', required: true) required this.picture,
+      @JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'picture') this.picture,
       @JsonKey(name: 'email') this.email});
 
   factory _$ConversationParticipantImpl.fromJson(Map<String, dynamic> json) =>
@@ -4987,14 +4991,18 @@ class _$ConversationParticipantImpl implements _ConversationParticipant {
   final String type;
 
   /// Participant name
+  ///
+  /// Can be null for the bot
   @override
-  @JsonKey(name: 'name', required: true)
-  final String name;
+  @JsonKey(name: 'name')
+  final String? name;
 
   /// Participant picture
+  ///
+  /// Can be null for the bot
   @override
-  @JsonKey(name: 'picture', required: true)
-  final String picture;
+  @JsonKey(name: 'picture')
+  final String? picture;
 
   /// Participant email
   @override
@@ -5041,12 +5049,12 @@ class _$ConversationParticipantImpl implements _ConversationParticipant {
 
 abstract class _ConversationParticipant implements ConversationParticipant {
   const factory _ConversationParticipant(
-      {@JsonKey(name: 'id', required: true) required final String id,
-      @JsonKey(name: 'type', required: true) required final String type,
-      @JsonKey(name: 'name', required: true) required final String name,
-      @JsonKey(name: 'picture', required: true) required final String picture,
-      @JsonKey(name: 'email')
-      final String? email}) = _$ConversationParticipantImpl;
+          {@JsonKey(name: 'id', required: true) required final String id,
+          @JsonKey(name: 'type', required: true) required final String type,
+          @JsonKey(name: 'name') final String? name,
+          @JsonKey(name: 'picture') final String? picture,
+          @JsonKey(name: 'email') final String? email}) =
+      _$ConversationParticipantImpl;
 
   factory _ConversationParticipant.fromJson(Map<String, dynamic> json) =
       _$ConversationParticipantImpl.fromJson;
@@ -5062,14 +5070,18 @@ abstract class _ConversationParticipant implements ConversationParticipant {
   String get type;
 
   /// Participant name
+  ///
+  /// Can be null for the bot
   @override
-  @JsonKey(name: 'name', required: true)
-  String get name;
+  @JsonKey(name: 'name')
+  String? get name;
 
   /// Participant picture
+  ///
+  /// Can be null for the bot
   @override
-  @JsonKey(name: 'picture', required: true)
-  String get picture;
+  @JsonKey(name: 'picture')
+  String? get picture;
 
   /// Participant email
   @override
