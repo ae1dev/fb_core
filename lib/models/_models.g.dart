@@ -333,7 +333,9 @@ _$ConversationImpl _$$ConversationImplFromJson(Map<String, dynamic> json) {
       'id',
       'type',
       'open',
+      'read',
       'lastActivityAt',
+      'lastRenderablePart',
       'participants'
     ],
   );
@@ -341,7 +343,10 @@ _$ConversationImpl _$$ConversationImplFromJson(Map<String, dynamic> json) {
     id: json['id'] as String,
     type: json['type'] as String,
     open: json['open'] as bool,
+    read: json['read'] as bool,
     lastActivityAt: DateTime.parse(json['lastActivityAt'] as String),
+    lastRenderablePart: ConversationPart.fromJson(
+        json['lastRenderablePart'] as Map<String, dynamic>),
     participants: (json['participants'] as List<dynamic>)
         .map((e) => ConversationParticipant.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -353,8 +358,33 @@ Map<String, dynamic> _$$ConversationImplToJson(_$ConversationImpl instance) =>
       'id': instance.id,
       'type': instance.type,
       'open': instance.open,
+      'read': instance.read,
       'lastActivityAt': instance.lastActivityAt.toIso8601String(),
+      'lastRenderablePart': instance.lastRenderablePart,
       'participants': instance.participants,
+    };
+
+_$ConversationPartImpl _$$ConversationPartImplFromJson(
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['id', 'partType', 'bodyText', 'createdAt'],
+  );
+  return _$ConversationPartImpl(
+    id: json['id'] as String,
+    partType: json['partType'] as String,
+    bodyText: json['bodyText'] as String,
+    createdAt: DateTime.parse(json['createdAt'] as String),
+  );
+}
+
+Map<String, dynamic> _$$ConversationPartImplToJson(
+        _$ConversationPartImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'partType': instance.partType,
+      'bodyText': instance.bodyText,
+      'createdAt': instance.createdAt.toIso8601String(),
     };
 
 _$ConversationParticipantImpl _$$ConversationParticipantImplFromJson(
