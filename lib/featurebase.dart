@@ -86,16 +86,9 @@ abstract class FeaturebaseApiBase {
   void setAccessToken(
     String accessToken, {
     bool cookieToken = false,
-    String? orgId,
   }) {
     if (cookieToken) {
-      //Set cookie token
-      if (orgId != null) {
-        _dio.options.headers['Cookie'] =
-            accessToken.replaceAll('-5febde12dc56d60012d47db6', '-$orgId');
-      } else {
-        _dio.options.headers['Cookie'] = accessToken;
-      }
+      _dio.options.headers['Cookie'] = accessToken;
     } else {
       //Set SSO token
       _dio.options.headers['x-access-token'] = accessToken;
