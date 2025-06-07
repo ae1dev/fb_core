@@ -11,6 +11,9 @@ class Inbox with _$Inbox {
 
     /// Inbox Id
     @JsonKey(name: 'id', required: true) required String id,
+
+    /// Inbox type
+    @JsonKey(name: 'type', required: true) required String type,
   }) = _Inbox;
 
   factory Inbox.fromJson(Map<String, Object?> json) => _$InboxFromJson(json);

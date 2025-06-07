@@ -3780,6 +3780,10 @@ mixin _$Inbox {
   @JsonKey(name: 'id', required: true)
   String get id => throw _privateConstructorUsedError;
 
+  /// Inbox type
+  @JsonKey(name: 'type', required: true)
+  String get type => throw _privateConstructorUsedError;
+
   /// Serializes this Inbox to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -3797,7 +3801,8 @@ abstract class $InboxCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'count', required: true) int count,
       @JsonKey(name: 'name', required: true) String name,
-      @JsonKey(name: 'id', required: true) String id});
+      @JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'type', required: true) String type});
 }
 
 /// @nodoc
@@ -3818,6 +3823,7 @@ class _$InboxCopyWithImpl<$Res, $Val extends Inbox>
     Object? count = null,
     Object? name = null,
     Object? id = null,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
       count: null == count
@@ -3831,6 +3837,10 @@ class _$InboxCopyWithImpl<$Res, $Val extends Inbox>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -3846,7 +3856,8 @@ abstract class _$$InboxImplCopyWith<$Res> implements $InboxCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'count', required: true) int count,
       @JsonKey(name: 'name', required: true) String name,
-      @JsonKey(name: 'id', required: true) String id});
+      @JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'type', required: true) String type});
 }
 
 /// @nodoc
@@ -3865,6 +3876,7 @@ class __$$InboxImplCopyWithImpl<$Res>
     Object? count = null,
     Object? name = null,
     Object? id = null,
+    Object? type = null,
   }) {
     return _then(_$InboxImpl(
       count: null == count
@@ -3879,6 +3891,10 @@ class __$$InboxImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -3889,7 +3905,8 @@ class _$InboxImpl implements _Inbox {
   const _$InboxImpl(
       {@JsonKey(name: 'count', required: true) required this.count,
       @JsonKey(name: 'name', required: true) required this.name,
-      @JsonKey(name: 'id', required: true) required this.id});
+      @JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'type', required: true) required this.type});
 
   factory _$InboxImpl.fromJson(Map<String, dynamic> json) =>
       _$$InboxImplFromJson(json);
@@ -3909,9 +3926,14 @@ class _$InboxImpl implements _Inbox {
   @JsonKey(name: 'id', required: true)
   final String id;
 
+  /// Inbox type
+  @override
+  @JsonKey(name: 'type', required: true)
+  final String type;
+
   @override
   String toString() {
-    return 'Inbox(count: $count, name: $name, id: $id)';
+    return 'Inbox(count: $count, name: $name, id: $id, type: $type)';
   }
 
   @override
@@ -3921,12 +3943,13 @@ class _$InboxImpl implements _Inbox {
             other is _$InboxImpl &&
             (identical(other.count, count) || other.count == count) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, count, name, id);
+  int get hashCode => Object.hash(runtimeType, count, name, id, type);
 
   /// Create a copy of Inbox
   /// with the given fields replaced by the non-null parameter values.
@@ -3948,7 +3971,8 @@ abstract class _Inbox implements Inbox {
   const factory _Inbox(
           {@JsonKey(name: 'count', required: true) required final int count,
           @JsonKey(name: 'name', required: true) required final String name,
-          @JsonKey(name: 'id', required: true) required final String id}) =
+          @JsonKey(name: 'id', required: true) required final String id,
+          @JsonKey(name: 'type', required: true) required final String type}) =
       _$InboxImpl;
 
   factory _Inbox.fromJson(Map<String, dynamic> json) = _$InboxImpl.fromJson;
@@ -3967,6 +3991,11 @@ abstract class _Inbox implements Inbox {
   @override
   @JsonKey(name: 'id', required: true)
   String get id;
+
+  /// Inbox type
+  @override
+  @JsonKey(name: 'type', required: true)
+  String get type;
 
   /// Create a copy of Inbox
   /// with the given fields replaced by the non-null parameter values.
