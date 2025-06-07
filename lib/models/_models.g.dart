@@ -349,6 +349,9 @@ _$ConversationImpl _$$ConversationImplFromJson(Map<String, dynamic> json) {
     lastActivityAt: DateTime.parse(json['lastActivityAt'] as String),
     lastRenderablePart: ConversationPart.fromJson(
         json['lastRenderablePart'] as Map<String, dynamic>),
+    conversationParts: (json['conversationParts'] as List<dynamic>?)
+        ?.map((e) => ConversationPart.fromJson(e as Map<String, dynamic>))
+        .toList(),
     participants: (json['participants'] as List<dynamic>)
         .map((e) => ConversationParticipant.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -363,6 +366,7 @@ Map<String, dynamic> _$$ConversationImplToJson(_$ConversationImpl instance) =>
       'read': instance.read,
       'lastActivityAt': instance.lastActivityAt.toIso8601String(),
       'lastRenderablePart': instance.lastRenderablePart,
+      'conversationParts': instance.conversationParts,
       'participants': instance.participants,
     };
 
@@ -370,13 +374,25 @@ _$ConversationPartImpl _$$ConversationPartImplFromJson(
     Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['id', 'partType', 'bodyText', 'createdAt'],
+    requiredKeys: const [
+      'id',
+      'partType',
+      'body',
+      'bodyText',
+      'channel',
+      'createdAt',
+      'author'
+    ],
   );
   return _$ConversationPartImpl(
     id: json['id'] as String,
     partType: json['partType'] as String,
+    body: json['body'] as String,
     bodyText: json['bodyText'] as String,
+    channel: json['channel'] as String,
     createdAt: DateTime.parse(json['createdAt'] as String),
+    author: ConversationParticipant.fromJson(
+        json['author'] as Map<String, dynamic>),
   );
 }
 
@@ -385,8 +401,11 @@ Map<String, dynamic> _$$ConversationPartImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'partType': instance.partType,
+      'body': instance.body,
       'bodyText': instance.bodyText,
+      'channel': instance.channel,
       'createdAt': instance.createdAt.toIso8601String(),
+      'author': instance.author,
     };
 
 _$ConversationParticipantImpl _$$ConversationParticipantImplFromJson(

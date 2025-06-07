@@ -47,4 +47,15 @@ class MessengerEnd extends EndpointBase {
       (json) => fb.Conversation.fromJson(json as Map<String, dynamic>),
     );
   }
+
+  /// Get a conversation
+  Future<fb.Conversation> conversation(String id) async {
+    final Map<String, Object?> map = (await dio.get(
+      '$_path/conversations/$id',
+    ))
+        .data;
+
+    return fb.Conversation.fromJson(
+        map['conversation'] as Map<String, dynamic>);
+  }
 }

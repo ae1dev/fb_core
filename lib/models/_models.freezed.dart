@@ -4035,6 +4035,11 @@ mixin _$Conversation {
   @JsonKey(name: 'lastRenderablePart', required: true)
   ConversationPart get lastRenderablePart => throw _privateConstructorUsedError;
 
+  /// The full conversation
+  @JsonKey(name: 'conversationParts')
+  List<ConversationPart>? get conversationParts =>
+      throw _privateConstructorUsedError;
+
   /// The conversation participants
   @JsonKey(name: 'participants', required: true)
   List<ConversationParticipant> get participants =>
@@ -4064,6 +4069,8 @@ abstract class $ConversationCopyWith<$Res> {
       @JsonKey(name: 'lastActivityAt', required: true) DateTime lastActivityAt,
       @JsonKey(name: 'lastRenderablePart', required: true)
       ConversationPart lastRenderablePart,
+      @JsonKey(name: 'conversationParts')
+      List<ConversationPart>? conversationParts,
       @JsonKey(name: 'participants', required: true)
       List<ConversationParticipant> participants});
 
@@ -4091,6 +4098,7 @@ class _$ConversationCopyWithImpl<$Res, $Val extends Conversation>
     Object? read = null,
     Object? lastActivityAt = null,
     Object? lastRenderablePart = null,
+    Object? conversationParts = freezed,
     Object? participants = null,
   }) {
     return _then(_value.copyWith(
@@ -4118,6 +4126,10 @@ class _$ConversationCopyWithImpl<$Res, $Val extends Conversation>
           ? _value.lastRenderablePart
           : lastRenderablePart // ignore: cast_nullable_to_non_nullable
               as ConversationPart,
+      conversationParts: freezed == conversationParts
+          ? _value.conversationParts
+          : conversationParts // ignore: cast_nullable_to_non_nullable
+              as List<ConversationPart>?,
       participants: null == participants
           ? _value.participants
           : participants // ignore: cast_nullable_to_non_nullable
@@ -4152,6 +4164,8 @@ abstract class _$$ConversationImplCopyWith<$Res>
       @JsonKey(name: 'lastActivityAt', required: true) DateTime lastActivityAt,
       @JsonKey(name: 'lastRenderablePart', required: true)
       ConversationPart lastRenderablePart,
+      @JsonKey(name: 'conversationParts')
+      List<ConversationPart>? conversationParts,
       @JsonKey(name: 'participants', required: true)
       List<ConversationParticipant> participants});
 
@@ -4178,6 +4192,7 @@ class __$$ConversationImplCopyWithImpl<$Res>
     Object? read = null,
     Object? lastActivityAt = null,
     Object? lastRenderablePart = null,
+    Object? conversationParts = freezed,
     Object? participants = null,
   }) {
     return _then(_$ConversationImpl(
@@ -4205,6 +4220,10 @@ class __$$ConversationImplCopyWithImpl<$Res>
           ? _value.lastRenderablePart
           : lastRenderablePart // ignore: cast_nullable_to_non_nullable
               as ConversationPart,
+      conversationParts: freezed == conversationParts
+          ? _value._conversationParts
+          : conversationParts // ignore: cast_nullable_to_non_nullable
+              as List<ConversationPart>?,
       participants: null == participants
           ? _value._participants
           : participants // ignore: cast_nullable_to_non_nullable
@@ -4225,9 +4244,12 @@ class _$ConversationImpl implements _Conversation {
       required this.lastActivityAt,
       @JsonKey(name: 'lastRenderablePart', required: true)
       required this.lastRenderablePart,
+      @JsonKey(name: 'conversationParts')
+      required final List<ConversationPart>? conversationParts,
       @JsonKey(name: 'participants', required: true)
       required final List<ConversationParticipant> participants})
-      : _participants = participants;
+      : _conversationParts = conversationParts,
+        _participants = participants;
 
   factory _$ConversationImpl.fromJson(Map<String, dynamic> json) =>
       _$$ConversationImplFromJson(json);
@@ -4262,6 +4284,21 @@ class _$ConversationImpl implements _Conversation {
   @JsonKey(name: 'lastRenderablePart', required: true)
   final ConversationPart lastRenderablePart;
 
+  /// The full conversation
+  final List<ConversationPart>? _conversationParts;
+
+  /// The full conversation
+  @override
+  @JsonKey(name: 'conversationParts')
+  List<ConversationPart>? get conversationParts {
+    final value = _conversationParts;
+    if (value == null) return null;
+    if (_conversationParts is EqualUnmodifiableListView)
+      return _conversationParts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   /// The conversation participants
   final List<ConversationParticipant> _participants;
 
@@ -4276,7 +4313,7 @@ class _$ConversationImpl implements _Conversation {
 
   @override
   String toString() {
-    return 'Conversation(id: $id, type: $type, open: $open, read: $read, lastActivityAt: $lastActivityAt, lastRenderablePart: $lastRenderablePart, participants: $participants)';
+    return 'Conversation(id: $id, type: $type, open: $open, read: $read, lastActivityAt: $lastActivityAt, lastRenderablePart: $lastRenderablePart, conversationParts: $conversationParts, participants: $participants)';
   }
 
   @override
@@ -4293,6 +4330,8 @@ class _$ConversationImpl implements _Conversation {
             (identical(other.lastRenderablePart, lastRenderablePart) ||
                 other.lastRenderablePart == lastRenderablePart) &&
             const DeepCollectionEquality()
+                .equals(other._conversationParts, _conversationParts) &&
+            const DeepCollectionEquality()
                 .equals(other._participants, _participants));
   }
 
@@ -4306,6 +4345,7 @@ class _$ConversationImpl implements _Conversation {
       read,
       lastActivityAt,
       lastRenderablePart,
+      const DeepCollectionEquality().hash(_conversationParts),
       const DeepCollectionEquality().hash(_participants));
 
   /// Create a copy of Conversation
@@ -4334,6 +4374,8 @@ abstract class _Conversation implements Conversation {
           required final DateTime lastActivityAt,
           @JsonKey(name: 'lastRenderablePart', required: true)
           required final ConversationPart lastRenderablePart,
+          @JsonKey(name: 'conversationParts')
+          required final List<ConversationPart>? conversationParts,
           @JsonKey(name: 'participants', required: true)
           required final List<ConversationParticipant> participants}) =
       _$ConversationImpl;
@@ -4371,6 +4413,11 @@ abstract class _Conversation implements Conversation {
   @JsonKey(name: 'lastRenderablePart', required: true)
   ConversationPart get lastRenderablePart;
 
+  /// The full conversation
+  @override
+  @JsonKey(name: 'conversationParts')
+  List<ConversationPart>? get conversationParts;
+
   /// The conversation participants
   @override
   @JsonKey(name: 'participants', required: true)
@@ -4398,13 +4445,25 @@ mixin _$ConversationPart {
   @JsonKey(name: 'partType', required: true)
   String get partType => throw _privateConstructorUsedError;
 
+  /// Full body
+  @JsonKey(name: 'body', required: true)
+  String get body => throw _privateConstructorUsedError;
+
   /// Body converted to text
   @JsonKey(name: 'bodyText', required: true)
   String get bodyText => throw _privateConstructorUsedError;
 
+  /// Conversation channel
+  @JsonKey(name: 'channel', required: true)
+  String get channel => throw _privateConstructorUsedError;
+
   /// When the part was created
   @JsonKey(name: 'createdAt', required: true)
   DateTime get createdAt => throw _privateConstructorUsedError;
+
+  /// Who the author of the part is
+  @JsonKey(name: 'author', required: true)
+  ConversationParticipant get author => throw _privateConstructorUsedError;
 
   /// Serializes this ConversationPart to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -4425,8 +4484,13 @@ abstract class $ConversationPartCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id', required: true) String id,
       @JsonKey(name: 'partType', required: true) String partType,
+      @JsonKey(name: 'body', required: true) String body,
       @JsonKey(name: 'bodyText', required: true) String bodyText,
-      @JsonKey(name: 'createdAt', required: true) DateTime createdAt});
+      @JsonKey(name: 'channel', required: true) String channel,
+      @JsonKey(name: 'createdAt', required: true) DateTime createdAt,
+      @JsonKey(name: 'author', required: true) ConversationParticipant author});
+
+  $ConversationParticipantCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -4446,8 +4510,11 @@ class _$ConversationPartCopyWithImpl<$Res, $Val extends ConversationPart>
   $Res call({
     Object? id = null,
     Object? partType = null,
+    Object? body = null,
     Object? bodyText = null,
+    Object? channel = null,
     Object? createdAt = null,
+    Object? author = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -4458,15 +4525,37 @@ class _$ConversationPartCopyWithImpl<$Res, $Val extends ConversationPart>
           ? _value.partType
           : partType // ignore: cast_nullable_to_non_nullable
               as String,
+      body: null == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
       bodyText: null == bodyText
           ? _value.bodyText
           : bodyText // ignore: cast_nullable_to_non_nullable
+              as String,
+      channel: null == channel
+          ? _value.channel
+          : channel // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as ConversationParticipant,
     ) as $Val);
+  }
+
+  /// Create a copy of ConversationPart
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ConversationParticipantCopyWith<$Res> get author {
+    return $ConversationParticipantCopyWith<$Res>(_value.author, (value) {
+      return _then(_value.copyWith(author: value) as $Val);
+    });
   }
 }
 
@@ -4481,8 +4570,14 @@ abstract class _$$ConversationPartImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'id', required: true) String id,
       @JsonKey(name: 'partType', required: true) String partType,
+      @JsonKey(name: 'body', required: true) String body,
       @JsonKey(name: 'bodyText', required: true) String bodyText,
-      @JsonKey(name: 'createdAt', required: true) DateTime createdAt});
+      @JsonKey(name: 'channel', required: true) String channel,
+      @JsonKey(name: 'createdAt', required: true) DateTime createdAt,
+      @JsonKey(name: 'author', required: true) ConversationParticipant author});
+
+  @override
+  $ConversationParticipantCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -4500,8 +4595,11 @@ class __$$ConversationPartImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? partType = null,
+    Object? body = null,
     Object? bodyText = null,
+    Object? channel = null,
     Object? createdAt = null,
+    Object? author = null,
   }) {
     return _then(_$ConversationPartImpl(
       id: null == id
@@ -4512,14 +4610,26 @@ class __$$ConversationPartImplCopyWithImpl<$Res>
           ? _value.partType
           : partType // ignore: cast_nullable_to_non_nullable
               as String,
+      body: null == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
       bodyText: null == bodyText
           ? _value.bodyText
           : bodyText // ignore: cast_nullable_to_non_nullable
+              as String,
+      channel: null == channel
+          ? _value.channel
+          : channel // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as ConversationParticipant,
     ));
   }
 }
@@ -4530,8 +4640,11 @@ class _$ConversationPartImpl implements _ConversationPart {
   const _$ConversationPartImpl(
       {@JsonKey(name: 'id', required: true) required this.id,
       @JsonKey(name: 'partType', required: true) required this.partType,
+      @JsonKey(name: 'body', required: true) required this.body,
       @JsonKey(name: 'bodyText', required: true) required this.bodyText,
-      @JsonKey(name: 'createdAt', required: true) required this.createdAt});
+      @JsonKey(name: 'channel', required: true) required this.channel,
+      @JsonKey(name: 'createdAt', required: true) required this.createdAt,
+      @JsonKey(name: 'author', required: true) required this.author});
 
   factory _$ConversationPartImpl.fromJson(Map<String, dynamic> json) =>
       _$$ConversationPartImplFromJson(json);
@@ -4546,19 +4659,34 @@ class _$ConversationPartImpl implements _ConversationPart {
   @JsonKey(name: 'partType', required: true)
   final String partType;
 
+  /// Full body
+  @override
+  @JsonKey(name: 'body', required: true)
+  final String body;
+
   /// Body converted to text
   @override
   @JsonKey(name: 'bodyText', required: true)
   final String bodyText;
+
+  /// Conversation channel
+  @override
+  @JsonKey(name: 'channel', required: true)
+  final String channel;
 
   /// When the part was created
   @override
   @JsonKey(name: 'createdAt', required: true)
   final DateTime createdAt;
 
+  /// Who the author of the part is
+  @override
+  @JsonKey(name: 'author', required: true)
+  final ConversationParticipant author;
+
   @override
   String toString() {
-    return 'ConversationPart(id: $id, partType: $partType, bodyText: $bodyText, createdAt: $createdAt)';
+    return 'ConversationPart(id: $id, partType: $partType, body: $body, bodyText: $bodyText, channel: $channel, createdAt: $createdAt, author: $author)';
   }
 
   @override
@@ -4569,16 +4697,19 @@ class _$ConversationPartImpl implements _ConversationPart {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.partType, partType) ||
                 other.partType == partType) &&
+            (identical(other.body, body) || other.body == body) &&
             (identical(other.bodyText, bodyText) ||
                 other.bodyText == bodyText) &&
+            (identical(other.channel, channel) || other.channel == channel) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            (identical(other.author, author) || other.author == author));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, partType, bodyText, createdAt);
+  int get hashCode => Object.hash(
+      runtimeType, id, partType, body, bodyText, channel, createdAt, author);
 
   /// Create a copy of ConversationPart
   /// with the given fields replaced by the non-null parameter values.
@@ -4601,9 +4732,13 @@ abstract class _ConversationPart implements ConversationPart {
   const factory _ConversationPart(
       {@JsonKey(name: 'id', required: true) required final String id,
       @JsonKey(name: 'partType', required: true) required final String partType,
+      @JsonKey(name: 'body', required: true) required final String body,
       @JsonKey(name: 'bodyText', required: true) required final String bodyText,
+      @JsonKey(name: 'channel', required: true) required final String channel,
       @JsonKey(name: 'createdAt', required: true)
-      required final DateTime createdAt}) = _$ConversationPartImpl;
+      required final DateTime createdAt,
+      @JsonKey(name: 'author', required: true)
+      required final ConversationParticipant author}) = _$ConversationPartImpl;
 
   factory _ConversationPart.fromJson(Map<String, dynamic> json) =
       _$ConversationPartImpl.fromJson;
@@ -4618,15 +4753,30 @@ abstract class _ConversationPart implements ConversationPart {
   @JsonKey(name: 'partType', required: true)
   String get partType;
 
+  /// Full body
+  @override
+  @JsonKey(name: 'body', required: true)
+  String get body;
+
   /// Body converted to text
   @override
   @JsonKey(name: 'bodyText', required: true)
   String get bodyText;
 
+  /// Conversation channel
+  @override
+  @JsonKey(name: 'channel', required: true)
+  String get channel;
+
   /// When the part was created
   @override
   @JsonKey(name: 'createdAt', required: true)
   DateTime get createdAt;
+
+  /// Who the author of the part is
+  @override
+  @JsonKey(name: 'author', required: true)
+  ConversationParticipant get author;
 
   /// Create a copy of ConversationPart
   /// with the given fields replaced by the non-null parameter values.

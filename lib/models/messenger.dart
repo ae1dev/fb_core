@@ -42,6 +42,10 @@ class Conversation with _$Conversation {
     @JsonKey(name: 'lastRenderablePart', required: true)
     required ConversationPart lastRenderablePart,
 
+    /// The full conversation
+    @JsonKey(name: 'conversationParts')
+    required List<ConversationPart>? conversationParts,
+
     /// The conversation participants
     @JsonKey(name: 'participants', required: true)
     required List<ConversationParticipant> participants,
@@ -60,11 +64,21 @@ class ConversationPart with _$ConversationPart {
     /// Part type
     @JsonKey(name: 'partType', required: true) required String partType,
 
+    /// Full body
+    @JsonKey(name: 'body', required: true) required String body,
+
     /// Body converted to text
     @JsonKey(name: 'bodyText', required: true) required String bodyText,
 
+    /// Conversation channel
+    @JsonKey(name: 'channel', required: true) required String channel,
+
     /// When the part was created
     @JsonKey(name: 'createdAt', required: true) required DateTime createdAt,
+
+    /// Who the author of the part is
+    @JsonKey(name: 'author', required: true)
+    required ConversationParticipant author,
   }) = _ConversationPart;
 
   factory ConversationPart.fromJson(Map<String, Object?> json) =>
