@@ -83,6 +83,8 @@ class AuthEnd extends EndpointBase {
       '/auth/admin-redirect?organizationId=$orgId',
     );
 
+    print('getCallback.headers: ${getCallback.headers}');
+
     final String? location = getCallback.headers.value('location');
 
     if (location == null) {
