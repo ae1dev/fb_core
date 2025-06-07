@@ -7,7 +7,7 @@ class AuthEnd extends EndpointBase {
   AuthEnd(super.api);
 
   /// Get featurebase-access cookie with email and password
-  Future<String> login({
+  Future<List<String>> login({
     required String email,
     required String password,
     required String recaptchaToken,
@@ -79,6 +79,7 @@ class AuthEnd extends EndpointBase {
       throw Exception('No organizations found in the response.');
     }
     final String orgId = orgs.first['id'];
+    final String orgName = orgs.first['name'];
 
     //Get callback
     final Response getCallback = await authDio.get(
@@ -101,7 +102,7 @@ class AuthEnd extends EndpointBase {
     }
     for (final String cookie in finalCookies) {
       if (cookie.startsWith('featurebase-access-$orgId=')) {
-        return cookie;
+        return [cookie, orgName];
       }
     }
     throw Exception(
