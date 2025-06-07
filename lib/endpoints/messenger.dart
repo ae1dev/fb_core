@@ -29,7 +29,6 @@ class MessengerEnd extends EndpointBase {
       "state": state,
       "inboxType": inboxType,
       "sortBy": sortBy,
-      "inboxId": inboxId,
       "page": page,
     };
 
