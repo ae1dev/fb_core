@@ -98,6 +98,19 @@ abstract class FeaturebaseApiBase {
     setTBSessionId();
   }
 
+  /// Remove an access token
+  void removeToken({
+    bool cookieToken = false,
+  }) {
+    if (cookieToken) {
+      _dio.options.headers.remove('Cookie');
+    } else {
+      //Remove SSO token
+      _dio.options.headers.remove('x-access-token');
+    }
+    _printInfo('Core: Removed access token');
+  }
+
   /// Set the CSRF token for the posts API requests
   void setCsrfToken(String csrfToken) {
     _dio.options.headers['x-csrf-token'] = csrfToken;
