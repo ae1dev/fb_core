@@ -20,6 +20,8 @@ class AuthEnd extends EndpointBase {
         headers: {
           'Origin': 'https://${_api.organizationName}.featurebase.app',
         },
+        followRedirects: false,
+        validateStatus: (status) => status != null && status < 400,
       ),
     );
 
@@ -82,8 +84,6 @@ class AuthEnd extends EndpointBase {
     final Response getCallback = await authDio.get(
       '/auth/admin-redirect?organizationId=$orgId',
     );
-
-    print('getCallback.headers: ${getCallback.headers}');
 
     final String? location = getCallback.headers.value('location');
 
