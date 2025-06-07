@@ -87,7 +87,7 @@ class ConversationParticipant with _$ConversationParticipant {
     @JsonKey(name: 'picture', required: true) required String picture,
 
     /// Participant email
-    @JsonKey(name: 'email', required: true) required String email,
+    @JsonKey(name: 'email') String? email,
   }) = _ConversationParticipant;
 
   factory ConversationParticipant.fromJson(Map<String, Object?> json) =>

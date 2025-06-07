@@ -4660,8 +4660,8 @@ mixin _$ConversationParticipant {
   String get picture => throw _privateConstructorUsedError;
 
   /// Participant email
-  @JsonKey(name: 'email', required: true)
-  String get email => throw _privateConstructorUsedError;
+  @JsonKey(name: 'email')
+  String? get email => throw _privateConstructorUsedError;
 
   /// Serializes this ConversationParticipant to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -4684,7 +4684,7 @@ abstract class $ConversationParticipantCopyWith<$Res> {
       @JsonKey(name: 'type', required: true) String type,
       @JsonKey(name: 'name', required: true) String name,
       @JsonKey(name: 'picture', required: true) String picture,
-      @JsonKey(name: 'email', required: true) String email});
+      @JsonKey(name: 'email') String? email});
 }
 
 /// @nodoc
@@ -4707,7 +4707,7 @@ class _$ConversationParticipantCopyWithImpl<$Res,
     Object? type = null,
     Object? name = null,
     Object? picture = null,
-    Object? email = null,
+    Object? email = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -4726,10 +4726,10 @@ class _$ConversationParticipantCopyWithImpl<$Res,
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -4748,7 +4748,7 @@ abstract class _$$ConversationParticipantImplCopyWith<$Res>
       @JsonKey(name: 'type', required: true) String type,
       @JsonKey(name: 'name', required: true) String name,
       @JsonKey(name: 'picture', required: true) String picture,
-      @JsonKey(name: 'email', required: true) String email});
+      @JsonKey(name: 'email') String? email});
 }
 
 /// @nodoc
@@ -4770,7 +4770,7 @@ class __$$ConversationParticipantImplCopyWithImpl<$Res>
     Object? type = null,
     Object? name = null,
     Object? picture = null,
-    Object? email = null,
+    Object? email = freezed,
   }) {
     return _then(_$ConversationParticipantImpl(
       id: null == id
@@ -4789,10 +4789,10 @@ class __$$ConversationParticipantImplCopyWithImpl<$Res>
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
               as String,
-      email: null == email
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -4805,7 +4805,7 @@ class _$ConversationParticipantImpl implements _ConversationParticipant {
       @JsonKey(name: 'type', required: true) required this.type,
       @JsonKey(name: 'name', required: true) required this.name,
       @JsonKey(name: 'picture', required: true) required this.picture,
-      @JsonKey(name: 'email', required: true) required this.email});
+      @JsonKey(name: 'email') this.email});
 
   factory _$ConversationParticipantImpl.fromJson(Map<String, dynamic> json) =>
       _$$ConversationParticipantImplFromJson(json);
@@ -4832,8 +4832,8 @@ class _$ConversationParticipantImpl implements _ConversationParticipant {
 
   /// Participant email
   @override
-  @JsonKey(name: 'email', required: true)
-  final String email;
+  @JsonKey(name: 'email')
+  final String? email;
 
   @override
   String toString() {
@@ -4879,8 +4879,8 @@ abstract class _ConversationParticipant implements ConversationParticipant {
       @JsonKey(name: 'type', required: true) required final String type,
       @JsonKey(name: 'name', required: true) required final String name,
       @JsonKey(name: 'picture', required: true) required final String picture,
-      @JsonKey(name: 'email', required: true)
-      required final String email}) = _$ConversationParticipantImpl;
+      @JsonKey(name: 'email')
+      final String? email}) = _$ConversationParticipantImpl;
 
   factory _ConversationParticipant.fromJson(Map<String, dynamic> json) =
       _$ConversationParticipantImpl.fromJson;
@@ -4907,8 +4907,8 @@ abstract class _ConversationParticipant implements ConversationParticipant {
 
   /// Participant email
   @override
-  @JsonKey(name: 'email', required: true)
-  String get email;
+  @JsonKey(name: 'email')
+  String? get email;
 
   /// Create a copy of ConversationParticipant
   /// with the given fields replaced by the non-null parameter values.
