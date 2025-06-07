@@ -6,8 +6,8 @@ class AuthEnd extends EndpointBase {
 
   AuthEnd(super.api);
 
-  /// Get auth token with email and password
-  Future<fb.UserWithAuth> login({
+  /// Get featurebase-access cookie with email and password
+  Future<String> login({
     required String email,
     required String password,
     required String recaptchaToken,
@@ -39,7 +39,9 @@ class AuthEnd extends EndpointBase {
       );
     }
 
-    final Map map = (await authDio.post(
+    //Send Post
+    String? authFeaturebaseCookie;
+    final Response loginResponse = await authDio.post(
       '/auth/login',
       data: {
         "email": email,
@@ -47,8 +49,60 @@ class AuthEnd extends EndpointBase {
         "recaptchaToken": recaptchaToken,
         "type": type,
       },
-    ))
-        .data;
-    return fb.UserWithAuth.fromJson(map['user']);
+    );
+
+    //Get the cookie
+    final List<String>? cookies = loginResponse.headers['set-cookie'];
+    if (cookies == null || cookies.isEmpty) {
+      throw Exception('The "set-cookie" header was not found in the response.');
+    }
+    // Find the cookie named 'featurebase-access='
+    for (final String cookie in cookies) {
+      if (cookie.startsWith('featurebase-access=')) {
+        authFeaturebaseCookie = cookie;
+        authDio.options.headers['Cookie'] = cookie;
+      }
+    }
+    //No token found
+    if (authFeaturebaseCookie == null) {
+      throw Exception('No auth.featurebase token found');
+    }
+
+    //Get org
+    final Response orgResponse = await authDio.get(
+      '/organization/admin/orgs',
+    );
+    final List<dynamic>? orgs = orgResponse.data['results'];
+    if (orgs == null || orgs.isEmpty) {
+      throw Exception('No organizations found in the response.');
+    }
+    final String orgId = orgs.first['id'];
+
+    //Get callback
+    final Response getCallback = await authDio.get(
+      '/auth/admin-redirect?organizationId=$orgId',
+    );
+
+    final String? location = getCallback.headers.value('location');
+
+    if (location == null) {
+      throw Exception('Location header not found in redirect response.');
+    }
+
+    // The location is a full URL, which will set the final cookie
+    final Response finalResponse = await authDio.get(location);
+    final List<String>? finalCookies = finalResponse.headers['set-cookie'];
+
+    if (finalCookies == null || finalCookies.isEmpty) {
+      throw Exception(
+          'The "set-cookie" header was not found in the final response.');
+    }
+    for (final String cookie in finalCookies) {
+      if (cookie.startsWith('featurebase-access-$orgId=')) {
+        return cookie;
+      }
+    }
+    throw Exception(
+        'The "featurebase-access" cookie was not found in the final response.');
   }
 }
