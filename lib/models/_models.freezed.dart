@@ -4031,6 +4031,10 @@ mixin _$Conversation {
   @JsonKey(name: 'lastActivityAt', required: true)
   DateTime get lastActivityAt => throw _privateConstructorUsedError;
 
+  /// Conversation source
+  @JsonKey(name: 'source', required: true)
+  ConversationSource get source => throw _privateConstructorUsedError;
+
   /// The last part in the conversation
   ///
   /// Only returned when getting conversations
@@ -4072,12 +4076,14 @@ abstract class $ConversationCopyWith<$Res> {
       @JsonKey(name: 'open', required: true) bool open,
       @JsonKey(name: 'read', required: true) bool read,
       @JsonKey(name: 'lastActivityAt', required: true) DateTime lastActivityAt,
+      @JsonKey(name: 'source', required: true) ConversationSource source,
       @JsonKey(name: 'lastRenderablePart') ConversationPart? lastRenderablePart,
       @JsonKey(name: 'conversationParts')
       List<ConversationPart>? conversationParts,
       @JsonKey(name: 'participants', required: true)
       List<ConversationParticipant> participants});
 
+  $ConversationSourceCopyWith<$Res> get source;
   $ConversationPartCopyWith<$Res>? get lastRenderablePart;
 }
 
@@ -4101,6 +4107,7 @@ class _$ConversationCopyWithImpl<$Res, $Val extends Conversation>
     Object? open = null,
     Object? read = null,
     Object? lastActivityAt = null,
+    Object? source = null,
     Object? lastRenderablePart = freezed,
     Object? conversationParts = freezed,
     Object? participants = null,
@@ -4126,6 +4133,10 @@ class _$ConversationCopyWithImpl<$Res, $Val extends Conversation>
           ? _value.lastActivityAt
           : lastActivityAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      source: null == source
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as ConversationSource,
       lastRenderablePart: freezed == lastRenderablePart
           ? _value.lastRenderablePart
           : lastRenderablePart // ignore: cast_nullable_to_non_nullable
@@ -4139,6 +4150,16 @@ class _$ConversationCopyWithImpl<$Res, $Val extends Conversation>
           : participants // ignore: cast_nullable_to_non_nullable
               as List<ConversationParticipant>,
     ) as $Val);
+  }
+
+  /// Create a copy of Conversation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ConversationSourceCopyWith<$Res> get source {
+    return $ConversationSourceCopyWith<$Res>(_value.source, (value) {
+      return _then(_value.copyWith(source: value) as $Val);
+    });
   }
 
   /// Create a copy of Conversation
@@ -4170,12 +4191,15 @@ abstract class _$$ConversationImplCopyWith<$Res>
       @JsonKey(name: 'open', required: true) bool open,
       @JsonKey(name: 'read', required: true) bool read,
       @JsonKey(name: 'lastActivityAt', required: true) DateTime lastActivityAt,
+      @JsonKey(name: 'source', required: true) ConversationSource source,
       @JsonKey(name: 'lastRenderablePart') ConversationPart? lastRenderablePart,
       @JsonKey(name: 'conversationParts')
       List<ConversationPart>? conversationParts,
       @JsonKey(name: 'participants', required: true)
       List<ConversationParticipant> participants});
 
+  @override
+  $ConversationSourceCopyWith<$Res> get source;
   @override
   $ConversationPartCopyWith<$Res>? get lastRenderablePart;
 }
@@ -4198,6 +4222,7 @@ class __$$ConversationImplCopyWithImpl<$Res>
     Object? open = null,
     Object? read = null,
     Object? lastActivityAt = null,
+    Object? source = null,
     Object? lastRenderablePart = freezed,
     Object? conversationParts = freezed,
     Object? participants = null,
@@ -4223,6 +4248,10 @@ class __$$ConversationImplCopyWithImpl<$Res>
           ? _value.lastActivityAt
           : lastActivityAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      source: null == source
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as ConversationSource,
       lastRenderablePart: freezed == lastRenderablePart
           ? _value.lastRenderablePart
           : lastRenderablePart // ignore: cast_nullable_to_non_nullable
@@ -4249,6 +4278,7 @@ class _$ConversationImpl implements _Conversation {
       @JsonKey(name: 'read', required: true) required this.read,
       @JsonKey(name: 'lastActivityAt', required: true)
       required this.lastActivityAt,
+      @JsonKey(name: 'source', required: true) required this.source,
       @JsonKey(name: 'lastRenderablePart') required this.lastRenderablePart,
       @JsonKey(name: 'conversationParts')
       required final List<ConversationPart>? conversationParts,
@@ -4284,6 +4314,11 @@ class _$ConversationImpl implements _Conversation {
   @override
   @JsonKey(name: 'lastActivityAt', required: true)
   final DateTime lastActivityAt;
+
+  /// Conversation source
+  @override
+  @JsonKey(name: 'source', required: true)
+  final ConversationSource source;
 
   /// The last part in the conversation
   ///
@@ -4325,7 +4360,7 @@ class _$ConversationImpl implements _Conversation {
 
   @override
   String toString() {
-    return 'Conversation(id: $id, type: $type, open: $open, read: $read, lastActivityAt: $lastActivityAt, lastRenderablePart: $lastRenderablePart, conversationParts: $conversationParts, participants: $participants)';
+    return 'Conversation(id: $id, type: $type, open: $open, read: $read, lastActivityAt: $lastActivityAt, source: $source, lastRenderablePart: $lastRenderablePart, conversationParts: $conversationParts, participants: $participants)';
   }
 
   @override
@@ -4339,6 +4374,7 @@ class _$ConversationImpl implements _Conversation {
             (identical(other.read, read) || other.read == read) &&
             (identical(other.lastActivityAt, lastActivityAt) ||
                 other.lastActivityAt == lastActivityAt) &&
+            (identical(other.source, source) || other.source == source) &&
             (identical(other.lastRenderablePart, lastRenderablePart) ||
                 other.lastRenderablePart == lastRenderablePart) &&
             const DeepCollectionEquality()
@@ -4356,6 +4392,7 @@ class _$ConversationImpl implements _Conversation {
       open,
       read,
       lastActivityAt,
+      source,
       lastRenderablePart,
       const DeepCollectionEquality().hash(_conversationParts),
       const DeepCollectionEquality().hash(_participants));
@@ -4384,6 +4421,8 @@ abstract class _Conversation implements Conversation {
           @JsonKey(name: 'read', required: true) required final bool read,
           @JsonKey(name: 'lastActivityAt', required: true)
           required final DateTime lastActivityAt,
+          @JsonKey(name: 'source', required: true)
+          required final ConversationSource source,
           @JsonKey(name: 'lastRenderablePart')
           required final ConversationPart? lastRenderablePart,
           @JsonKey(name: 'conversationParts')
@@ -4419,6 +4458,11 @@ abstract class _Conversation implements Conversation {
   @override
   @JsonKey(name: 'lastActivityAt', required: true)
   DateTime get lastActivityAt;
+
+  /// Conversation source
+  @override
+  @JsonKey(name: 'source', required: true)
+  ConversationSource get source;
 
   /// The last part in the conversation
   ///
@@ -5116,6 +5160,270 @@ abstract class _ConversationParticipant implements ConversationParticipant {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ConversationParticipantImplCopyWith<_$ConversationParticipantImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+ConversationSource _$ConversationSourceFromJson(Map<String, dynamic> json) {
+  return _ConversationSource.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ConversationSource {
+  /// Channel
+  @JsonKey(name: 'channel', required: true)
+  String get channel => throw _privateConstructorUsedError;
+
+  /// Conversation subject
+  @JsonKey(name: 'subject', required: true)
+  String get subject => throw _privateConstructorUsedError;
+
+  /// Conversation body
+  @JsonKey(name: 'body', required: true)
+  String get body => throw _privateConstructorUsedError;
+
+  /// Source author
+  @JsonKey(name: 'author', required: true)
+  ConversationParticipant get author => throw _privateConstructorUsedError;
+
+  /// Serializes this ConversationSource to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of ConversationSource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ConversationSourceCopyWith<ConversationSource> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ConversationSourceCopyWith<$Res> {
+  factory $ConversationSourceCopyWith(
+          ConversationSource value, $Res Function(ConversationSource) then) =
+      _$ConversationSourceCopyWithImpl<$Res, ConversationSource>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'channel', required: true) String channel,
+      @JsonKey(name: 'subject', required: true) String subject,
+      @JsonKey(name: 'body', required: true) String body,
+      @JsonKey(name: 'author', required: true) ConversationParticipant author});
+
+  $ConversationParticipantCopyWith<$Res> get author;
+}
+
+/// @nodoc
+class _$ConversationSourceCopyWithImpl<$Res, $Val extends ConversationSource>
+    implements $ConversationSourceCopyWith<$Res> {
+  _$ConversationSourceCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of ConversationSource
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? channel = null,
+    Object? subject = null,
+    Object? body = null,
+    Object? author = null,
+  }) {
+    return _then(_value.copyWith(
+      channel: null == channel
+          ? _value.channel
+          : channel // ignore: cast_nullable_to_non_nullable
+              as String,
+      subject: null == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: null == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as ConversationParticipant,
+    ) as $Val);
+  }
+
+  /// Create a copy of ConversationSource
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ConversationParticipantCopyWith<$Res> get author {
+    return $ConversationParticipantCopyWith<$Res>(_value.author, (value) {
+      return _then(_value.copyWith(author: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$ConversationSourceImplCopyWith<$Res>
+    implements $ConversationSourceCopyWith<$Res> {
+  factory _$$ConversationSourceImplCopyWith(_$ConversationSourceImpl value,
+          $Res Function(_$ConversationSourceImpl) then) =
+      __$$ConversationSourceImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'channel', required: true) String channel,
+      @JsonKey(name: 'subject', required: true) String subject,
+      @JsonKey(name: 'body', required: true) String body,
+      @JsonKey(name: 'author', required: true) ConversationParticipant author});
+
+  @override
+  $ConversationParticipantCopyWith<$Res> get author;
+}
+
+/// @nodoc
+class __$$ConversationSourceImplCopyWithImpl<$Res>
+    extends _$ConversationSourceCopyWithImpl<$Res, _$ConversationSourceImpl>
+    implements _$$ConversationSourceImplCopyWith<$Res> {
+  __$$ConversationSourceImplCopyWithImpl(_$ConversationSourceImpl _value,
+      $Res Function(_$ConversationSourceImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ConversationSource
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? channel = null,
+    Object? subject = null,
+    Object? body = null,
+    Object? author = null,
+  }) {
+    return _then(_$ConversationSourceImpl(
+      channel: null == channel
+          ? _value.channel
+          : channel // ignore: cast_nullable_to_non_nullable
+              as String,
+      subject: null == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: null == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as ConversationParticipant,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$ConversationSourceImpl implements _ConversationSource {
+  const _$ConversationSourceImpl(
+      {@JsonKey(name: 'channel', required: true) required this.channel,
+      @JsonKey(name: 'subject', required: true) required this.subject,
+      @JsonKey(name: 'body', required: true) required this.body,
+      @JsonKey(name: 'author', required: true) required this.author});
+
+  factory _$ConversationSourceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ConversationSourceImplFromJson(json);
+
+  /// Channel
+  @override
+  @JsonKey(name: 'channel', required: true)
+  final String channel;
+
+  /// Conversation subject
+  @override
+  @JsonKey(name: 'subject', required: true)
+  final String subject;
+
+  /// Conversation body
+  @override
+  @JsonKey(name: 'body', required: true)
+  final String body;
+
+  /// Source author
+  @override
+  @JsonKey(name: 'author', required: true)
+  final ConversationParticipant author;
+
+  @override
+  String toString() {
+    return 'ConversationSource(channel: $channel, subject: $subject, body: $body, author: $author)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ConversationSourceImpl &&
+            (identical(other.channel, channel) || other.channel == channel) &&
+            (identical(other.subject, subject) || other.subject == subject) &&
+            (identical(other.body, body) || other.body == body) &&
+            (identical(other.author, author) || other.author == author));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, channel, subject, body, author);
+
+  /// Create a copy of ConversationSource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ConversationSourceImplCopyWith<_$ConversationSourceImpl> get copyWith =>
+      __$$ConversationSourceImplCopyWithImpl<_$ConversationSourceImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ConversationSourceImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ConversationSource implements ConversationSource {
+  const factory _ConversationSource(
+      {@JsonKey(name: 'channel', required: true) required final String channel,
+      @JsonKey(name: 'subject', required: true) required final String subject,
+      @JsonKey(name: 'body', required: true) required final String body,
+      @JsonKey(name: 'author', required: true)
+      required final ConversationParticipant
+          author}) = _$ConversationSourceImpl;
+
+  factory _ConversationSource.fromJson(Map<String, dynamic> json) =
+      _$ConversationSourceImpl.fromJson;
+
+  /// Channel
+  @override
+  @JsonKey(name: 'channel', required: true)
+  String get channel;
+
+  /// Conversation subject
+  @override
+  @JsonKey(name: 'subject', required: true)
+  String get subject;
+
+  /// Conversation body
+  @override
+  @JsonKey(name: 'body', required: true)
+  String get body;
+
+  /// Source author
+  @override
+  @JsonKey(name: 'author', required: true)
+  ConversationParticipant get author;
+
+  /// Create a copy of ConversationSource
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConversationSourceImplCopyWith<_$ConversationSourceImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 NavItem _$NavItemFromJson(Map<String, dynamic> json) {

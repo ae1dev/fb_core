@@ -337,6 +337,7 @@ _$ConversationImpl _$$ConversationImplFromJson(Map<String, dynamic> json) {
       'open',
       'read',
       'lastActivityAt',
+      'source',
       'participants'
     ],
   );
@@ -346,6 +347,7 @@ _$ConversationImpl _$$ConversationImplFromJson(Map<String, dynamic> json) {
     open: json['open'] as bool,
     read: json['read'] as bool,
     lastActivityAt: DateTime.parse(json['lastActivityAt'] as String),
+    source: ConversationSource.fromJson(json['source'] as Map<String, dynamic>),
     lastRenderablePart: json['lastRenderablePart'] == null
         ? null
         : ConversationPart.fromJson(
@@ -366,6 +368,7 @@ Map<String, dynamic> _$$ConversationImplToJson(_$ConversationImpl instance) =>
       'open': instance.open,
       'read': instance.read,
       'lastActivityAt': instance.lastActivityAt.toIso8601String(),
+      'source': instance.source,
       'lastRenderablePart': instance.lastRenderablePart,
       'conversationParts': instance.conversationParts,
       'participants': instance.participants,
@@ -426,6 +429,30 @@ Map<String, dynamic> _$$ConversationParticipantImplToJson(
       'name': instance.name,
       'picture': instance.picture,
       'email': instance.email,
+    };
+
+_$ConversationSourceImpl _$$ConversationSourceImplFromJson(
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['channel', 'subject', 'body', 'author'],
+  );
+  return _$ConversationSourceImpl(
+    channel: json['channel'] as String,
+    subject: json['subject'] as String,
+    body: json['body'] as String,
+    author: ConversationParticipant.fromJson(
+        json['author'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$$ConversationSourceImplToJson(
+        _$ConversationSourceImpl instance) =>
+    <String, dynamic>{
+      'channel': instance.channel,
+      'subject': instance.subject,
+      'body': instance.body,
+      'author': instance.author,
     };
 
 _$NavItemImpl _$$NavItemImplFromJson(Map<String, dynamic> json) =>

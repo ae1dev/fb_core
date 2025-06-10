@@ -38,9 +38,12 @@ class Conversation with _$Conversation {
     @JsonKey(name: 'lastActivityAt', required: true)
     required DateTime lastActivityAt,
 
+    /// Conversation source
+    @JsonKey(name: 'source', required: true) required ConversationSource source,
+
     /// The last part in the conversation
     ///
-    /// Only returned when getting conversations
+    /// Only returned when getting conversations list
     @JsonKey(name: 'lastRenderablePart')
     required ConversationPart? lastRenderablePart,
 
@@ -119,4 +122,25 @@ class ConversationParticipant with _$ConversationParticipant {
 
   factory ConversationParticipant.fromJson(Map<String, Object?> json) =>
       _$ConversationParticipantFromJson(json);
+}
+
+@freezed
+class ConversationSource with _$ConversationSource {
+  const factory ConversationSource({
+    /// Channel
+    @JsonKey(name: 'channel', required: true) required String channel,
+
+    /// Conversation subject
+    @JsonKey(name: 'subject', required: true) required String subject,
+
+    /// Conversation body
+    @JsonKey(name: 'body', required: true) required String body,
+
+    /// Source author
+    @JsonKey(name: 'author', required: true)
+    required ConversationParticipant author,
+  }) = _ConversationSource;
+
+  factory ConversationSource.fromJson(Map<String, Object?> json) =>
+      _$ConversationSourceFromJson(json);
 }
