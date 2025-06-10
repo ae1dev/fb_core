@@ -4037,7 +4037,7 @@ mixin _$Conversation {
 
   /// The last part in the conversation
   ///
-  /// Only returned when getting conversations
+  /// Only returned when getting conversations list
   @JsonKey(name: 'lastRenderablePart')
   ConversationPart? get lastRenderablePart =>
       throw _privateConstructorUsedError;
@@ -4322,7 +4322,7 @@ class _$ConversationImpl implements _Conversation {
 
   /// The last part in the conversation
   ///
-  /// Only returned when getting conversations
+  /// Only returned when getting conversations list
   @override
   @JsonKey(name: 'lastRenderablePart')
   final ConversationPart? lastRenderablePart;
@@ -4466,7 +4466,7 @@ abstract class _Conversation implements Conversation {
 
   /// The last part in the conversation
   ///
-  /// Only returned when getting conversations
+  /// Only returned when getting conversations list
   @override
   @JsonKey(name: 'lastRenderablePart')
   ConversationPart? get lastRenderablePart;
@@ -5173,8 +5173,8 @@ mixin _$ConversationSource {
   String get channel => throw _privateConstructorUsedError;
 
   /// Conversation subject
-  @JsonKey(name: 'subject', required: true)
-  String get subject => throw _privateConstructorUsedError;
+  @JsonKey(name: 'subject')
+  String? get subject => throw _privateConstructorUsedError;
 
   /// Conversation body
   @JsonKey(name: 'body', required: true)
@@ -5202,7 +5202,7 @@ abstract class $ConversationSourceCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'channel', required: true) String channel,
-      @JsonKey(name: 'subject', required: true) String subject,
+      @JsonKey(name: 'subject') String? subject,
       @JsonKey(name: 'body', required: true) String body,
       @JsonKey(name: 'author', required: true) ConversationParticipant author});
 
@@ -5225,7 +5225,7 @@ class _$ConversationSourceCopyWithImpl<$Res, $Val extends ConversationSource>
   @override
   $Res call({
     Object? channel = null,
-    Object? subject = null,
+    Object? subject = freezed,
     Object? body = null,
     Object? author = null,
   }) {
@@ -5234,10 +5234,10 @@ class _$ConversationSourceCopyWithImpl<$Res, $Val extends ConversationSource>
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String,
-      subject: null == subject
+      subject: freezed == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -5270,7 +5270,7 @@ abstract class _$$ConversationSourceImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'channel', required: true) String channel,
-      @JsonKey(name: 'subject', required: true) String subject,
+      @JsonKey(name: 'subject') String? subject,
       @JsonKey(name: 'body', required: true) String body,
       @JsonKey(name: 'author', required: true) ConversationParticipant author});
 
@@ -5292,7 +5292,7 @@ class __$$ConversationSourceImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? channel = null,
-    Object? subject = null,
+    Object? subject = freezed,
     Object? body = null,
     Object? author = null,
   }) {
@@ -5301,10 +5301,10 @@ class __$$ConversationSourceImplCopyWithImpl<$Res>
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String,
-      subject: null == subject
+      subject: freezed == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       body: null == body
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -5322,7 +5322,7 @@ class __$$ConversationSourceImplCopyWithImpl<$Res>
 class _$ConversationSourceImpl implements _ConversationSource {
   const _$ConversationSourceImpl(
       {@JsonKey(name: 'channel', required: true) required this.channel,
-      @JsonKey(name: 'subject', required: true) required this.subject,
+      @JsonKey(name: 'subject') required this.subject,
       @JsonKey(name: 'body', required: true) required this.body,
       @JsonKey(name: 'author', required: true) required this.author});
 
@@ -5336,8 +5336,8 @@ class _$ConversationSourceImpl implements _ConversationSource {
 
   /// Conversation subject
   @override
-  @JsonKey(name: 'subject', required: true)
-  final String subject;
+  @JsonKey(name: 'subject')
+  final String? subject;
 
   /// Conversation body
   @override
@@ -5389,7 +5389,7 @@ class _$ConversationSourceImpl implements _ConversationSource {
 abstract class _ConversationSource implements ConversationSource {
   const factory _ConversationSource(
       {@JsonKey(name: 'channel', required: true) required final String channel,
-      @JsonKey(name: 'subject', required: true) required final String subject,
+      @JsonKey(name: 'subject') required final String? subject,
       @JsonKey(name: 'body', required: true) required final String body,
       @JsonKey(name: 'author', required: true)
       required final ConversationParticipant
@@ -5405,8 +5405,8 @@ abstract class _ConversationSource implements ConversationSource {
 
   /// Conversation subject
   @override
-  @JsonKey(name: 'subject', required: true)
-  String get subject;
+  @JsonKey(name: 'subject')
+  String? get subject;
 
   /// Conversation body
   @override

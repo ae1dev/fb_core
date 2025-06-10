@@ -131,7 +131,7 @@ class ConversationSource with _$ConversationSource {
     @JsonKey(name: 'channel', required: true) required String channel,
 
     /// Conversation subject
-    @JsonKey(name: 'subject', required: true) required String subject,
+    @JsonKey(name: 'subject') required String? subject,
 
     /// Conversation body
     @JsonKey(name: 'body', required: true) required String body,

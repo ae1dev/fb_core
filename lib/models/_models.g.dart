@@ -435,11 +435,11 @@ _$ConversationSourceImpl _$$ConversationSourceImplFromJson(
     Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['channel', 'subject', 'body', 'author'],
+    requiredKeys: const ['channel', 'body', 'author'],
   );
   return _$ConversationSourceImpl(
     channel: json['channel'] as String,
-    subject: json['subject'] as String,
+    subject: json['subject'] as String?,
     body: json['body'] as String,
     author: ConversationParticipant.fromJson(
         json['author'] as Map<String, dynamic>),
