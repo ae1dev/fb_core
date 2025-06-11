@@ -155,7 +155,7 @@ class FormattedLocation with _$FormattedLocation {
     @JsonKey(name: 'longitude', required: true) required double longitude,
 
     /// Location name
-    @JsonKey(name: 'location', required: true) required String location,
+    @JsonKey(name: 'location') String? location,
   }) = _FormattedLocation;
 
   factory FormattedLocation.fromJson(Map<String, Object?> json) =>

@@ -459,12 +459,12 @@ _$FormattedLocationImpl _$$FormattedLocationImplFromJson(
     Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['latitude', 'longitude', 'location'],
+    requiredKeys: const ['latitude', 'longitude'],
   );
   return _$FormattedLocationImpl(
     latitude: (json['latitude'] as num).toDouble(),
     longitude: (json['longitude'] as num).toDouble(),
-    location: json['location'] as String,
+    location: json['location'] as String?,
   );
 }
 

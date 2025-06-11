@@ -5441,8 +5441,8 @@ mixin _$FormattedLocation {
   double get longitude => throw _privateConstructorUsedError;
 
   /// Location name
-  @JsonKey(name: 'location', required: true)
-  String get location => throw _privateConstructorUsedError;
+  @JsonKey(name: 'location')
+  String? get location => throw _privateConstructorUsedError;
 
   /// Serializes this FormattedLocation to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -5463,7 +5463,7 @@ abstract class $FormattedLocationCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'latitude', required: true) double latitude,
       @JsonKey(name: 'longitude', required: true) double longitude,
-      @JsonKey(name: 'location', required: true) String location});
+      @JsonKey(name: 'location') String? location});
 }
 
 /// @nodoc
@@ -5483,7 +5483,7 @@ class _$FormattedLocationCopyWithImpl<$Res, $Val extends FormattedLocation>
   $Res call({
     Object? latitude = null,
     Object? longitude = null,
-    Object? location = null,
+    Object? location = freezed,
   }) {
     return _then(_value.copyWith(
       latitude: null == latitude
@@ -5494,10 +5494,10 @@ class _$FormattedLocationCopyWithImpl<$Res, $Val extends FormattedLocation>
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double,
-      location: null == location
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -5513,7 +5513,7 @@ abstract class _$$FormattedLocationImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'latitude', required: true) double latitude,
       @JsonKey(name: 'longitude', required: true) double longitude,
-      @JsonKey(name: 'location', required: true) String location});
+      @JsonKey(name: 'location') String? location});
 }
 
 /// @nodoc
@@ -5531,7 +5531,7 @@ class __$$FormattedLocationImplCopyWithImpl<$Res>
   $Res call({
     Object? latitude = null,
     Object? longitude = null,
-    Object? location = null,
+    Object? location = freezed,
   }) {
     return _then(_$FormattedLocationImpl(
       latitude: null == latitude
@@ -5542,10 +5542,10 @@ class __$$FormattedLocationImplCopyWithImpl<$Res>
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double,
-      location: null == location
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -5556,7 +5556,7 @@ class _$FormattedLocationImpl implements _FormattedLocation {
   const _$FormattedLocationImpl(
       {@JsonKey(name: 'latitude', required: true) required this.latitude,
       @JsonKey(name: 'longitude', required: true) required this.longitude,
-      @JsonKey(name: 'location', required: true) required this.location});
+      @JsonKey(name: 'location') this.location});
 
   factory _$FormattedLocationImpl.fromJson(Map<String, dynamic> json) =>
       _$$FormattedLocationImplFromJson(json);
@@ -5573,8 +5573,8 @@ class _$FormattedLocationImpl implements _FormattedLocation {
 
   /// Location name
   @override
-  @JsonKey(name: 'location', required: true)
-  final String location;
+  @JsonKey(name: 'location')
+  final String? location;
 
   @override
   String toString() {
@@ -5617,12 +5617,12 @@ class _$FormattedLocationImpl implements _FormattedLocation {
 
 abstract class _FormattedLocation implements FormattedLocation {
   const factory _FormattedLocation(
-      {@JsonKey(name: 'latitude', required: true)
-      required final double latitude,
-      @JsonKey(name: 'longitude', required: true)
-      required final double longitude,
-      @JsonKey(name: 'location', required: true)
-      required final String location}) = _$FormattedLocationImpl;
+          {@JsonKey(name: 'latitude', required: true)
+          required final double latitude,
+          @JsonKey(name: 'longitude', required: true)
+          required final double longitude,
+          @JsonKey(name: 'location') final String? location}) =
+      _$FormattedLocationImpl;
 
   factory _FormattedLocation.fromJson(Map<String, dynamic> json) =
       _$FormattedLocationImpl.fromJson;
@@ -5639,8 +5639,8 @@ abstract class _FormattedLocation implements FormattedLocation {
 
   /// Location name
   @override
-  @JsonKey(name: 'location', required: true)
-  String get location;
+  @JsonKey(name: 'location')
+  String? get location;
 
   /// Create a copy of FormattedLocation
   /// with the given fields replaced by the non-null parameter values.
