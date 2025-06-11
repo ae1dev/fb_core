@@ -152,7 +152,7 @@ class FormattedLocation with _$FormattedLocation {
     @JsonKey(name: 'latitude', required: true) required double latitude,
 
     /// Location longitude
-    @JsonKey(name: 'longitude') required double longitude,
+    @JsonKey(name: 'longitude', required: true) required double longitude,
 
     /// Location name
     @JsonKey(name: 'location', required: true) required String location,
