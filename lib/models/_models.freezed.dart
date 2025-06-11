@@ -5426,6 +5426,229 @@ abstract class _ConversationSource implements ConversationSource {
       throw _privateConstructorUsedError;
 }
 
+FormattedLocation _$FormattedLocationFromJson(Map<String, dynamic> json) {
+  return _FormattedLocation.fromJson(json);
+}
+
+/// @nodoc
+mixin _$FormattedLocation {
+  /// Location latitude
+  @JsonKey(name: 'latitude', required: true)
+  double get latitude => throw _privateConstructorUsedError;
+
+  /// Location longitude
+  @JsonKey(name: 'longitude')
+  double get longitude => throw _privateConstructorUsedError;
+
+  /// Location name
+  @JsonKey(name: 'location', required: true)
+  String get location => throw _privateConstructorUsedError;
+
+  /// Serializes this FormattedLocation to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of FormattedLocation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $FormattedLocationCopyWith<FormattedLocation> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FormattedLocationCopyWith<$Res> {
+  factory $FormattedLocationCopyWith(
+          FormattedLocation value, $Res Function(FormattedLocation) then) =
+      _$FormattedLocationCopyWithImpl<$Res, FormattedLocation>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'latitude', required: true) double latitude,
+      @JsonKey(name: 'longitude') double longitude,
+      @JsonKey(name: 'location', required: true) String location});
+}
+
+/// @nodoc
+class _$FormattedLocationCopyWithImpl<$Res, $Val extends FormattedLocation>
+    implements $FormattedLocationCopyWith<$Res> {
+  _$FormattedLocationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of FormattedLocation
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? latitude = null,
+    Object? longitude = null,
+    Object? location = null,
+  }) {
+    return _then(_value.copyWith(
+      latitude: null == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: null == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$FormattedLocationImplCopyWith<$Res>
+    implements $FormattedLocationCopyWith<$Res> {
+  factory _$$FormattedLocationImplCopyWith(_$FormattedLocationImpl value,
+          $Res Function(_$FormattedLocationImpl) then) =
+      __$$FormattedLocationImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'latitude', required: true) double latitude,
+      @JsonKey(name: 'longitude') double longitude,
+      @JsonKey(name: 'location', required: true) String location});
+}
+
+/// @nodoc
+class __$$FormattedLocationImplCopyWithImpl<$Res>
+    extends _$FormattedLocationCopyWithImpl<$Res, _$FormattedLocationImpl>
+    implements _$$FormattedLocationImplCopyWith<$Res> {
+  __$$FormattedLocationImplCopyWithImpl(_$FormattedLocationImpl _value,
+      $Res Function(_$FormattedLocationImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of FormattedLocation
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? latitude = null,
+    Object? longitude = null,
+    Object? location = null,
+  }) {
+    return _then(_$FormattedLocationImpl(
+      latitude: null == latitude
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: null == longitude
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$FormattedLocationImpl implements _FormattedLocation {
+  const _$FormattedLocationImpl(
+      {@JsonKey(name: 'latitude', required: true) required this.latitude,
+      @JsonKey(name: 'longitude') required this.longitude,
+      @JsonKey(name: 'location', required: true) required this.location});
+
+  factory _$FormattedLocationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FormattedLocationImplFromJson(json);
+
+  /// Location latitude
+  @override
+  @JsonKey(name: 'latitude', required: true)
+  final double latitude;
+
+  /// Location longitude
+  @override
+  @JsonKey(name: 'longitude')
+  final double longitude;
+
+  /// Location name
+  @override
+  @JsonKey(name: 'location', required: true)
+  final String location;
+
+  @override
+  String toString() {
+    return 'FormattedLocation(latitude: $latitude, longitude: $longitude, location: $location)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FormattedLocationImpl &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude) &&
+            (identical(other.location, location) ||
+                other.location == location));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, latitude, longitude, location);
+
+  /// Create a copy of FormattedLocation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FormattedLocationImplCopyWith<_$FormattedLocationImpl> get copyWith =>
+      __$$FormattedLocationImplCopyWithImpl<_$FormattedLocationImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$FormattedLocationImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _FormattedLocation implements FormattedLocation {
+  const factory _FormattedLocation(
+      {@JsonKey(name: 'latitude', required: true)
+      required final double latitude,
+      @JsonKey(name: 'longitude') required final double longitude,
+      @JsonKey(name: 'location', required: true)
+      required final String location}) = _$FormattedLocationImpl;
+
+  factory _FormattedLocation.fromJson(Map<String, dynamic> json) =
+      _$FormattedLocationImpl.fromJson;
+
+  /// Location latitude
+  @override
+  @JsonKey(name: 'latitude', required: true)
+  double get latitude;
+
+  /// Location longitude
+  @override
+  @JsonKey(name: 'longitude')
+  double get longitude;
+
+  /// Location name
+  @override
+  @JsonKey(name: 'location', required: true)
+  String get location;
+
+  /// Create a copy of FormattedLocation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FormattedLocationImplCopyWith<_$FormattedLocationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 NavItem _$NavItemFromJson(Map<String, dynamic> json) {
   return _NavItem.fromJson(json);
 }

@@ -455,6 +455,27 @@ Map<String, dynamic> _$$ConversationSourceImplToJson(
       'author': instance.author,
     };
 
+_$FormattedLocationImpl _$$FormattedLocationImplFromJson(
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['latitude', 'location'],
+  );
+  return _$FormattedLocationImpl(
+    latitude: (json['latitude'] as num).toDouble(),
+    longitude: (json['longitude'] as num).toDouble(),
+    location: json['location'] as String,
+  );
+}
+
+Map<String, dynamic> _$$FormattedLocationImplToJson(
+        _$FormattedLocationImpl instance) =>
+    <String, dynamic>{
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
+      'location': instance.location,
+    };
+
 _$NavItemImpl _$$NavItemImplFromJson(Map<String, dynamic> json) =>
     _$NavItemImpl(
       type: json['type'] as String,

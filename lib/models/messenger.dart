@@ -144,3 +144,20 @@ class ConversationSource with _$ConversationSource {
   factory ConversationSource.fromJson(Map<String, Object?> json) =>
       _$ConversationSourceFromJson(json);
 }
+
+@freezed
+class FormattedLocation with _$FormattedLocation {
+  const factory FormattedLocation({
+    /// Location latitude
+    @JsonKey(name: 'latitude', required: true) required double latitude,
+
+    /// Location longitude
+    @JsonKey(name: 'longitude') required double longitude,
+
+    /// Location name
+    @JsonKey(name: 'location', required: true) required String location,
+  }) = _FormattedLocation;
+
+  factory FormattedLocation.fromJson(Map<String, Object?> json) =>
+      _$FormattedLocationFromJson(json);
+}

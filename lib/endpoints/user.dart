@@ -11,4 +11,17 @@ class UserEnd extends EndpointBase {
     final Map<String, Object?> map = (await dio.get(_path)).data;
     return fb.User.fromJson(map);
   }
+
+  /// Get the location of the user
+  Future<fb.FormattedLocation> getLocation(String userId) async {
+    final Map<String, Object?> map = (await dio.get(
+      '$_path/getUserLocation',
+      queryParameters: {
+        "userId": userId,
+      },
+    ))
+        .data;
+    return fb.FormattedLocation.fromJson(
+        map['formattedLocation'] as Map<String, Object?>);
+  }
 }
