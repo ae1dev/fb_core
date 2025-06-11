@@ -69,6 +69,8 @@ class ConversationPart with _$ConversationPart {
     @JsonKey(name: 'id', required: true) required String id,
 
     /// Part type
+    ///
+    /// Known types: admin_note, email_msg
     @JsonKey(name: 'partType', required: true) required String partType,
 
     /// Full body
